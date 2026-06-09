@@ -86,6 +86,17 @@ nav{
     transition:0.3s;
 }
 
+.nav-links a:focus-visible,
+.login-btn:focus-visible,
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible,
+.slide-content button:focus-visible,
+.close-associate:focus-visible,
+.associate-submit:focus-visible{
+    outline:3px solid rgba(247,164,0,0.7);
+    outline-offset:4px;
+}
+
 .login-btn:hover{
     transform:translateY(-3px);
 }
@@ -217,7 +228,7 @@ nav{
     linear-gradient(180deg,#ffffff,#f5f5f5);
 
     padding:35px;
-    border-radius:30px;
+    border-radius:20px;
 
     border:1px solid rgba(0,0,0,0.08);
 
@@ -241,7 +252,7 @@ nav{
 .card-benefit{
     background:#ffffff;
     padding:18px;
-    border-radius:18px;
+    border-radius:8px;
     margin-bottom:15px;
     transition:0.3s;
 }
@@ -314,7 +325,7 @@ nav{
 .slide{
     min-width:380px;
     height:260px;
-    border-radius:32px;
+    border-radius:8px;
     padding:35px;
     position:relative;
     overflow:hidden;
@@ -459,7 +470,7 @@ nav{
 .floating-photo{
     width:230px;
     height:170px;
-    border-radius:24px;
+    border-radius:8px;
     overflow:hidden;
     position:absolute;
     background-size:cover;
@@ -571,7 +582,7 @@ nav{
     width:100%;
     max-width:720px;
     background:white;
-    border-radius:24px;
+    border-radius:8px;
     overflow:hidden;
     box-shadow:0 16px 40px rgba(0,0,0,0.22);
     animation:modalIn 0.35s ease;
@@ -655,7 +666,7 @@ nav{
     width:100%;
     padding:11px 12px;
     border:2px solid #d9d9d9;
-    border-radius:12px;
+    border-radius:8px;
     font-size:15px;
     transition:0.3s;
 }
@@ -686,7 +697,7 @@ nav{
     width:100%;
     padding:13px;
     border:none;
-    border-radius:14px;
+    border-radius:8px;
     background:linear-gradient(135deg,#1db954,#2d46b9);
     color:white;
     font-size:18px;
@@ -766,6 +777,20 @@ nav{
 
 @media(max-width:1000px){
 
+    nav{
+        gap:20px;
+        padding:14px 5%;
+    }
+
+    .logo img{
+        width:72px;
+        height:72px;
+    }
+
+    .nav-links{
+        gap:18px;
+    }
+
     .hero{
         flex-direction:column;
         text-align:center;
@@ -824,15 +849,36 @@ nav{
 @media(max-width:700px){
 
     nav{
-        padding:20px;
+        align-items:flex-start;
+        padding:12px 20px;
+    }
+
+    .logo img{
+        width:58px;
+        height:58px;
+    }
+
+    .logo h2{
+        font-size:24px;
     }
 
     .nav-links{
+        justify-content:flex-end;
+        flex-wrap:wrap;
+        gap:10px;
+    }
+
+    .nav-links a{
         display:none;
     }
 
+    .login-btn{
+        padding:11px 16px;
+        font-size:14px;
+    }
+
     .hero{
-        padding:130px 20px 60px;
+        padding:115px 20px 60px;
     }
 
     .featured{
@@ -853,8 +899,9 @@ nav{
     }
 
     .slide{
-        min-width:320px;
+        min-width:calc(100vw - 40px);
         height:240px;
+        padding:26px;
     }
 
     .slide-content h3{
@@ -866,7 +913,8 @@ nav{
     }
 
     .associate-section{
-        padding:20px 20px 80px;
+        align-items:flex-start;
+        padding:18px 16px 70px;
     }
 
     .associate-header h2{
@@ -874,7 +922,11 @@ nav{
     }
 
     .associate-form{
-        padding:24px;
+        padding:22px 18px;
+    }
+
+    .thanks-message h2{
+        font-size:32px;
     }
 
 }

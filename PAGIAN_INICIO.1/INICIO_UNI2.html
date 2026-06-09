@@ -24,13 +24,13 @@
     </div>
 
     <div class="nav-links">
-        <a href="#">Inicio</a>
-        <a href="#">Beneficios</a>
-        <a href="#">Servicios</a>
-        <a href="#">Contacto</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#beneficios">Beneficios</a>
+        <a href="#beneficios-tiendas">Servicios</a>
+        <a href="#asociarme" id="openContact">Contacto</a>
 
-        <button class="login-btn">
-            Iniciar sesión
+        <button class="login-btn" type="button" id="openAssociateNav">
+            Asociarme
         </button>
     </div>
 
@@ -38,7 +38,7 @@
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="inicio">
 
     <div class="hero-text">
 
@@ -72,7 +72,7 @@
 
     <div class="hero-card">
 
-        <h3>✨ Beneficios activos</h3>
+        <h3>Beneficios activos</h3>
 
         <p>
             Descuentos disponibles para asociados de
@@ -80,17 +80,17 @@
         </p>
 
         <div class="card-benefit">
-            <h4>🏋️ Hangar Fitness</h4>
+            <h4>Hangar Fitness</h4>
             <p>15% de descuento.</p>
         </div>
 
         <div class="card-benefit">
-            <h4>🛍️ Tienda Mínima y Río</h4>
+            <h4>Tienda Mínima y Río</h4>
             <p>10% de descuento.</p>
         </div>
 
         <div class="card-benefit">
-            <h4>🛒 Drugstore</h4>
+            <h4>Drugstore</h4>
             <p>10% de descuento.</p>
         </div>
 
@@ -100,7 +100,7 @@
 
 <!-- BENEFICIOS DESTACADOS -->
 
-<section class="featured">
+<section class="featured" id="beneficios">
 
     <div class="featured-header">
 
@@ -136,7 +136,7 @@
             <div class="slide-content">
 
                 <span class="tag">
-                    📚 ASOCIADOS
+                    ASOCIADOS
                 </span>
 
                 <h3>
@@ -165,7 +165,7 @@
             <div class="slide-content">
 
                 <span class="tag">
-                    📄 NO ASOCIADOS
+                    NO ASOCIADOS
                 </span>
 
                 <h3>
@@ -194,7 +194,7 @@
             <div class="slide-content">
 
                 <span class="tag">
-                    📎 ASOCIADOS
+                    ASOCIADOS
                 </span>
 
                 <h3>
@@ -276,17 +276,17 @@
 
 <!-- ASOCIARSE -->
 
-<section class="associate-section" id="asociarme">
+<section class="associate-section" id="asociarme" aria-hidden="true">
 
-    <div class="associate-card">
+    <div class="associate-card" role="dialog" aria-modal="true" aria-labelledby="associateTitle">
 
         <div class="associate-header">
             <button type="button" class="close-associate" id="closeAssociate">
                 ×
             </button>
 
-            <h2>UNI2</h2>
-            <p>Completa la informacion para asociarte</p>
+            <h2 id="associateTitle">UNI2</h2>
+            <p>Completá la información para asociarte</p>
         </div>
 
         <form class="associate-form" id="associateForm">
@@ -294,24 +294,24 @@
             <div class="form-row">
                 <div class="form-group">
                     <label>Nombre</label>
-                    <input type="text" placeholder="Ingrese su nombre" required>
+                    <input type="text" name="nombre" placeholder="Ingrese su nombre" autocomplete="given-name" required>
                 </div>
 
                 <div class="form-group">
                     <label>Apellido</label>
-                    <input type="text" placeholder="Ingrese su apellido" required>
+                    <input type="text" name="apellido" placeholder="Ingrese su apellido" autocomplete="family-name" required>
                 </div>
             </div>
 
             <div class="form-group">
-                <label>Correo Gmail</label>
-                <input type="email" placeholder="ejemplo@gmail.com" required>
+                <label>Correo electrónico</label>
+                <input type="email" name="email" placeholder="ejemplo@gmail.com" autocomplete="email" required>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Meses que desea asociarse</label>
-                    <select required>
+                    <select name="meses" required>
                         <option value="">Seleccione una opción</option>
                         <option>1 Mes</option>
                         <option>3 Meses</option>
@@ -322,14 +322,14 @@
 
                 <div class="form-group">
                     <label>Fecha de asociación</label>
-                    <input type="date" required>
+                    <input type="date" name="fecha" required>
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Año</label>
-                    <select required>
+                    <select name="anio" required>
                         <option value="">Seleccione</option>
                         <option>1° Año</option>
                         <option>2° Año</option>
@@ -342,7 +342,7 @@
 
                 <div class="form-group">
                     <label>Curso</label>
-                    <input type="text" placeholder="Ej: A, B, C..." required>
+                    <input type="text" name="curso" placeholder="Ej: A, B, C..." required>
                 </div>
             </div>
 
@@ -351,12 +351,12 @@
 
                 <div class="radio-group">
                     <div class="radio-item">
-                        <input type="radio" name="escuela" required>
+                        <input type="radio" name="escuela" value="si" required>
                         <span>Sí</span>
                     </div>
 
                     <div class="radio-item">
-                        <input type="radio" name="escuela">
+                        <input type="radio" name="escuela" value="no">
                         <span>No</span>
                     </div>
                 </div>
@@ -364,7 +364,7 @@
 
             <div class="form-group">
                 <label>Si no pertenece, ¿de cuál escuela es?</label>
-                <input type="text" placeholder="Nombre de la escuela">
+                <input type="text" name="otraEscuela" placeholder="Nombre de la escuela">
             </div>
 
             <div class="form-group">
@@ -372,12 +372,12 @@
 
                 <div class="radio-group">
                     <div class="radio-item">
-                        <input type="radio" name="docente" required>
+                        <input type="radio" name="docente" value="si" required>
                         <span>Sí</span>
                     </div>
 
                     <div class="radio-item">
-                        <input type="radio" name="docente">
+                        <input type="radio" name="docente" value="no">
                         <span>No</span>
                     </div>
                 </div>
@@ -405,19 +405,25 @@
 
 <script>
     const openAssociate = document.getElementById("openAssociate");
+    const openAssociateNav = document.getElementById("openAssociateNav");
+    const openContact = document.getElementById("openContact");
     const closeAssociate = document.getElementById("closeAssociate");
     const associateModal = document.getElementById("asociarme");
     const associateForm = document.getElementById("associateForm");
     const thanksMessage = document.getElementById("thanksMessage");
 
     function openAssociateModal(event){
-        event.preventDefault();
+        if(event){
+            event.preventDefault();
+        }
         associateModal.classList.add("is-open");
+        associateModal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
     }
 
     function closeAssociateModal(){
         associateModal.classList.remove("is-open");
+        associateModal.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
     }
 
@@ -440,10 +446,18 @@
     }
 
     openAssociate.addEventListener("click", openAssociateModal);
+    openAssociateNav.addEventListener("click", openAssociateModal);
+    openContact.addEventListener("click", openAssociateModal);
     closeAssociate.addEventListener("click", closeAssociateModal);
 
     associateModal.addEventListener("click", (event) => {
         if(event.target === associateModal){
+            closeAssociateModal();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if(event.key === "Escape" && associateModal.classList.contains("is-open")){
             closeAssociateModal();
         }
     });
