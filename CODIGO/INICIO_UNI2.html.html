@@ -60,8 +60,8 @@
                 Asociarme
             </a>
 
-            <a href="#login" class="secondary-btn" id="openLoginHero">
-                Iniciar sesión
+            <a href="#horarios" class="secondary-btn" id="openScheduleHero">
+                Horarios
             </a>
 
         </div>
@@ -214,6 +214,93 @@
 
         </div>
 
+        <!-- SLIDE 4 -->
+
+        <div class="slide orange">
+
+            <div class="slide-overlay"></div>
+
+            <div class="slide-content">
+
+                <span class="tag">
+                    A CONFIRMAR
+                </span>
+
+                <h3>
+                    Impresiones
+                </h3>
+
+                <p>
+                    Próximamente agregaremos<br>
+                    la información completa.
+                </p>
+
+                <button>
+                    Consultar
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- SLIDE 5 -->
+
+        <div class="slide green">
+
+            <div class="slide-overlay"></div>
+
+            <div class="slide-content">
+
+                <span class="tag">
+                    A CONFIRMAR
+                </span>
+
+                <h3>
+                    Plastificado
+                </h3>
+
+                <p>
+                    Espacio reservado para<br>
+                    nuevos precios UNI2.
+                </p>
+
+                <button>
+                    Consultar
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- SLIDE 6 -->
+
+        <div class="slide blue">
+
+            <div class="slide-overlay"></div>
+
+            <div class="slide-content">
+
+                <span class="tag">
+                    A CONFIRMAR
+                </span>
+
+                <h3>
+                    Nuevo servicio
+                </h3>
+
+                <p>
+                    Disponible para completar<br>
+                    con los próximos datos.
+                </p>
+
+                <button>
+                    Consultar
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
 
 </section>
@@ -285,7 +372,7 @@
                 ×
             </button>
 
-            <img class="modal-logo" src="assets/uni2-logo.svg" alt="Logo UNI2">
+            <img class="modal-logo" src="../LOJO_UNI2.png" alt="Logo UNI2">
             <h2 id="associateTitle">UNI2</h2>
             <p>Completá la información para asociarte</p>
         </div>
@@ -409,7 +496,7 @@
                 ×
             </button>
 
-            <img class="modal-logo" src="assets/uni2-logo.svg" alt="Logo UNI2">
+            <img class="modal-logo" src="../LOJO_UNI2.png" alt="Logo UNI2">
             <h2 id="contactTitle">Contacto UNI2</h2>
             <p>Dejanos tu consulta y nos comunicamos con vos</p>
         </div>
@@ -456,7 +543,7 @@
                 ×
             </button>
 
-            <img class="modal-logo" src="assets/uni2-logo.svg" alt="Logo UNI2">
+            <img class="modal-logo" src="../LOJO_UNI2.png" alt="Logo UNI2">
             <h2 id="loginTitle">Iniciar sesión</h2>
             <p>Ingresá con tu Gmail y contraseña</p>
         </div>
@@ -487,6 +574,72 @@
 
 </section>
 
+<!-- HORARIOS -->
+
+<section class="schedule-section" id="horarios" aria-hidden="true">
+
+    <div class="associate-card schedule-card" role="dialog" aria-modal="true" aria-labelledby="scheduleTitle">
+
+        <div class="associate-header">
+            <button type="button" class="close-associate" id="closeSchedule">
+                ×
+            </button>
+
+            <img class="modal-logo" src="../LOJO_UNI2.png" alt="Logo UNI2">
+            <h2 id="scheduleTitle">Horarios UNI2</h2>
+            <p>Información de atención de la mutual</p>
+        </div>
+
+        <div class="schedule-content">
+
+            <div class="contact-tabs">
+                <a href="https://www.instagram.com/unidos.cet3/" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
+                <span>Número: a confirmar</span>
+            </div>
+
+            <div class="week-calendar" aria-label="Calendario semanal de atención">
+                <article>
+                    <span>Lunes</span>
+                    <strong>Horario a confirmar</strong>
+                    <p>Atención de la mutual</p>
+                </article>
+
+                <article>
+                    <span>Martes</span>
+                    <strong>Horario a confirmar</strong>
+                    <p>Atención de la mutual</p>
+                </article>
+
+                <article>
+                    <span>Miércoles</span>
+                    <strong>Horario a confirmar</strong>
+                    <p>Atención de la mutual</p>
+                </article>
+
+                <article>
+                    <span>Jueves</span>
+                    <strong>Horario a confirmar</strong>
+                    <p>Atención de la mutual</p>
+                </article>
+
+                <article>
+                    <span>Viernes</span>
+                    <strong>Horario a confirmar</strong>
+                    <p>Atención de la mutual</p>
+                </article>
+            </div>
+
+        </div>
+
+        <div class="associate-footer">
+            Luego se pueden cargar los horarios exactos
+        </div>
+
+    </div>
+
+</section>
+
 <div class="thanks-message" id="thanksMessage">
     <h2>
         Muchas gracias por ser parte de la mutual
@@ -500,14 +653,17 @@
 <script>
     const openAssociate = document.getElementById("openAssociate");
     const openLoginNav = document.getElementById("openLoginNav");
-    const openLoginHero = document.getElementById("openLoginHero");
+    const openScheduleHero = document.getElementById("openScheduleHero");
     const openContact = document.getElementById("openContact");
     const closeAssociate = document.getElementById("closeAssociate");
     const closeContact = document.getElementById("closeContact");
     const closeLogin = document.getElementById("closeLogin");
+    const closeSchedule = document.getElementById("closeSchedule");
     const associateModal = document.getElementById("asociarme");
     const contactModal = document.getElementById("contacto");
     const loginModal = document.getElementById("login");
+    const scheduleModal = document.getElementById("horarios");
+    const slider = document.querySelector(".slider");
     const associateForm = document.getElementById("associateForm");
     const contactForm = document.getElementById("contactForm");
     const loginForm = document.getElementById("loginForm");
@@ -554,6 +710,10 @@
         openModal(loginModal, event);
     }
 
+    function openScheduleModal(event){
+        openModal(scheduleModal, event);
+    }
+
     function closeAssociateModal(){
         closeModal(associateModal);
     }
@@ -564,6 +724,10 @@
 
     function closeLoginModal(){
         closeModal(loginModal);
+    }
+
+    function closeScheduleModal(){
+        closeModal(scheduleModal);
     }
 
     function launchConfetti(){
@@ -587,10 +751,11 @@
     openAssociate.addEventListener("click", openAssociateModal);
     openContact.addEventListener("click", openContactModal);
     openLoginNav.addEventListener("click", openLoginModal);
-    openLoginHero.addEventListener("click", openLoginModal);
+    openScheduleHero.addEventListener("click", openScheduleModal);
     closeAssociate.addEventListener("click", closeAssociateModal);
     closeContact.addEventListener("click", closeContactModal);
     closeLogin.addEventListener("click", closeLoginModal);
+    closeSchedule.addEventListener("click", closeScheduleModal);
 
     themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
@@ -616,6 +781,12 @@
         }
     });
 
+    scheduleModal.addEventListener("click", (event) => {
+        if(event.target === scheduleModal){
+            closeScheduleModal();
+        }
+    });
+
     document.addEventListener("keydown", (event) => {
         if(event.key === "Escape"){
             if(associateModal.classList.contains("is-open")){
@@ -629,13 +800,70 @@
             if(loginModal.classList.contains("is-open")){
                 closeLoginModal();
             }
+
+            if(scheduleModal.classList.contains("is-open")){
+                closeScheduleModal();
+            }
         }
     });
+
+    function startPriceCarousel(){
+        if(!slider){
+            return;
+        }
+
+        const originalSlides = Array.from(slider.children);
+        let isPaused = false;
+
+        originalSlides.forEach((slide) => {
+            const clone = slide.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+
+            clone.querySelectorAll("button, a, input, select, textarea").forEach((control) => {
+                control.setAttribute("tabindex", "-1");
+            });
+
+            slider.appendChild(clone);
+        });
+
+        slider.addEventListener("mouseenter", () => {
+            isPaused = true;
+        });
+
+        slider.addEventListener("mouseleave", () => {
+            isPaused = false;
+        });
+
+        slider.addEventListener("focusin", () => {
+            isPaused = true;
+        });
+
+        slider.addEventListener("focusout", () => {
+            isPaused = false;
+        });
+
+        function moveCarousel(){
+            if(!isPaused){
+                slider.scrollLeft += 0.8;
+
+                if(slider.scrollLeft >= slider.scrollWidth / 2){
+                    slider.scrollLeft = 0;
+                }
+            }
+
+            requestAnimationFrame(moveCarousel);
+        }
+
+        moveCarousel();
+    }
+
+    startPriceCarousel();
 
     associateForm.addEventListener("submit", (event) => {
         event.preventDefault();
         closeAssociateModal();
         associateForm.reset();
+        thanksMessage.querySelector("h2").textContent = "Muchas gracias por ser parte de la mutual";
         thanksMessage.classList.add("is-visible");
         launchConfetti();
 

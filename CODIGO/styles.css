@@ -7,6 +7,18 @@
 
 html{
     scroll-behavior:smooth;
+    scrollbar-width:none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.slider::-webkit-scrollbar,
+.associate-section::-webkit-scrollbar,
+.contact-section::-webkit-scrollbar,
+.login-section::-webkit-scrollbar,
+.schedule-section::-webkit-scrollbar,
+.associate-card::-webkit-scrollbar{
+    display:none;
 }
 
 body{
@@ -21,6 +33,8 @@ body{
     #ffffff;
     color:#141414;
     overflow-x:hidden;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
     transition:background 0.35s ease,color 0.35s ease;
 }
 
@@ -116,7 +130,8 @@ body.dark-mode .nav-links a{
 .secondary-btn:focus-visible,
 .slide-content button:focus-visible,
 .close-associate:focus-visible,
-.associate-submit:focus-visible{
+.associate-submit:focus-visible,
+.contact-tabs a:focus-visible{
     outline:3px solid rgba(247,164,0,0.7);
     outline-offset:4px;
 }
@@ -374,15 +389,8 @@ body.dark-mode .card-benefit h4{
     overflow-x:auto;
     scroll-behavior:smooth;
     padding-bottom:10px;
-}
-
-.slider::-webkit-scrollbar{
-    height:8px;
-}
-
-.slider::-webkit-scrollbar-thumb{
-    background:#0f8f42;
-    border-radius:20px;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
 }
 
 /* SLIDES */
@@ -630,7 +638,10 @@ body.dark-mode .stores h2{
    FORMULARIO DE ASOCIACION
 ========================= */
 
-.associate-section{
+.associate-section,
+.contact-section,
+.login-section,
+.schedule-section{
     position:fixed;
     inset:0;
     padding:82px 20px 46px;
@@ -641,9 +652,14 @@ body.dark-mode .stores h2{
     backdrop-filter:blur(8px);
     z-index:2000;
     overflow-y:auto;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
 }
 
-.associate-section.is-open{
+.associate-section.is-open,
+.contact-section.is-open,
+.login-section.is-open,
+.schedule-section.is-open{
     display:flex;
 }
 
@@ -653,12 +669,20 @@ body.dark-mode .stores h2{
     max-height:calc(100vh - 128px);
     margin:0 0;
     background:white;
-    border-radius:8px;
-    overflow:hidden;
     border-radius:24px;
     overflow-y:auto;
+    -ms-overflow-style:none;
+    scrollbar-width:none;
     box-shadow:0 16px 40px rgba(0,0,0,0.22);
     animation:modalIn 0.35s ease;
+}
+
+.small-card{
+    max-width:540px;
+}
+
+.schedule-card{
+    max-width:860px;
 }
 
 body.dark-mode .associate-card{
@@ -694,6 +718,14 @@ body.dark-mode .associate-card{
 .associate-header p{
     font-size:16px;
     opacity:0.92;
+}
+
+.modal-logo{
+    width:82px;
+    height:82px;
+    object-fit:contain;
+    margin-bottom:8px;
+    filter:drop-shadow(0 8px 16px rgba(0,0,0,0.22));
 }
 
 .close-associate{
@@ -744,7 +776,8 @@ body.dark-mode .form-group label{
 }
 
 .form-group input,
-.form-group select{
+.form-group select,
+.form-group textarea{
     width:100%;
     padding:11px 12px;
     border:2px solid #d9d9d9;
@@ -754,16 +787,23 @@ body.dark-mode .form-group label{
 }
 
 body.dark-mode .form-group input,
-body.dark-mode .form-group select{
+body.dark-mode .form-group select,
+body.dark-mode .form-group textarea{
     background:#0c111a;
     border-color:#283142;
     color:#f4f4f4;
 }
 
 .form-group input:focus,
-.form-group select:focus{
+.form-group select:focus,
+.form-group textarea:focus{
     border-color:#0f8f42;
     outline:none;
+}
+
+.form-group textarea{
+    min-height:130px;
+    resize:vertical;
 }
 
 .radio-group{
@@ -786,8 +826,6 @@ body.dark-mode .form-group select{
     width:100%;
     padding:13px;
     border:none;
-    border-radius:8px;
-    background:linear-gradient(135deg,#1db954,#2d46b9);
     border-radius:14px;
     background:linear-gradient(135deg,#0f8f42,#20388f);
     color:white;
@@ -795,6 +833,86 @@ body.dark-mode .form-group select{
     font-weight:800;
     cursor:pointer;
     transition:0.3s;
+}
+
+.schedule-content{
+    padding:32px 42px 36px;
+}
+
+.contact-tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:22px;
+}
+
+.contact-tabs a,
+.contact-tabs span{
+    display:inline-flex;
+    align-items:center;
+    min-height:42px;
+    padding:10px 16px;
+    border-radius:50px;
+    background:#eef4ff;
+    color:#20388f;
+    font-size:14px;
+    font-weight:800;
+    text-decoration:none;
+    border:1px solid rgba(32,56,143,0.12);
+}
+
+body.dark-mode .contact-tabs a,
+body.dark-mode .contact-tabs span{
+    background:#0c111a;
+    color:#dbe1ff;
+    border-color:#283142;
+}
+
+.week-calendar{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:12px;
+}
+
+.week-calendar article{
+    min-height:154px;
+    padding:16px;
+    border-radius:12px;
+    background:#ffffff;
+    border:1px solid rgba(0,0,0,0.08);
+    box-shadow:0 10px 24px rgba(0,0,0,0.08);
+}
+
+body.dark-mode .week-calendar article{
+    background:#0c111a;
+    border-color:#283142;
+    box-shadow:none;
+}
+
+.week-calendar span{
+    display:block;
+    color:#0f8f42;
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1px;
+    margin-bottom:14px;
+}
+
+.week-calendar strong{
+    display:block;
+    font-size:17px;
+    line-height:1.35;
+    margin-bottom:10px;
+}
+
+.week-calendar p{
+    color:#555555;
+    font-size:14px;
+    line-height:1.5;
+}
+
+body.dark-mode .week-calendar p{
+    color:#cfcfcf;
 }
 
 .associate-submit:hover{
@@ -1047,7 +1165,10 @@ body.dark-mode .theme-toggle{
         grid-template-columns:1fr;
     }
 
-    .associate-section{
+    .associate-section,
+    .contact-section,
+    .login-section,
+    .schedule-section{
         padding:78px 20px 36px;
     }
 
@@ -1062,6 +1183,14 @@ body.dark-mode .theme-toggle{
 
     .associate-form{
         padding:22px 18px;
+    }
+
+    .schedule-content{
+        padding:22px 18px;
+    }
+
+    .week-calendar{
+        grid-template-columns:1fr;
     }
 
     .thanks-message h2{
