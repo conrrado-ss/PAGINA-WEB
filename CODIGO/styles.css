@@ -110,7 +110,6 @@ body.dark-mode .nav-links a{
     transition:0.3s;
 }
 
-<<<<<<< HEAD:PAGIAN_INICIO.1/styles.css
 .nav-links a:focus-visible,
 .login-btn:focus-visible,
 .primary-btn:focus-visible,
@@ -120,10 +119,6 @@ body.dark-mode .nav-links a{
 .associate-submit:focus-visible{
     outline:3px solid rgba(247,164,0,0.7);
     outline-offset:4px;
-=======
-body.dark-mode .login-btn{
-    background:linear-gradient(135deg,#0b5f32,#083f25);
->>>>>>> refs/remotes/origin/main:CODIGO/styles.css
 }
 
 .login-btn:hover{
@@ -658,13 +653,10 @@ body.dark-mode .stores h2{
     max-height:calc(100vh - 128px);
     margin:0 0;
     background:white;
-<<<<<<< HEAD:PAGIAN_INICIO.1/styles.css
     border-radius:8px;
     overflow:hidden;
-=======
     border-radius:24px;
     overflow-y:auto;
->>>>>>> refs/remotes/origin/main:CODIGO/styles.css
     box-shadow:0 16px 40px rgba(0,0,0,0.22);
     animation:modalIn 0.35s ease;
 }
@@ -794,13 +786,10 @@ body.dark-mode .form-group select{
     width:100%;
     padding:13px;
     border:none;
-<<<<<<< HEAD:PAGIAN_INICIO.1/styles.css
     border-radius:8px;
     background:linear-gradient(135deg,#1db954,#2d46b9);
-=======
     border-radius:14px;
     background:linear-gradient(135deg,#0f8f42,#20388f);
->>>>>>> refs/remotes/origin/main:CODIGO/styles.css
     color:white;
     font-size:18px;
     font-weight:800;
@@ -1059,17 +1048,12 @@ body.dark-mode .theme-toggle{
     }
 
     .associate-section{
-<<<<<<< HEAD:PAGIAN_INICIO.1/styles.css
-        align-items:flex-start;
-        padding:18px 16px 70px;
-=======
         padding:78px 20px 36px;
     }
 
     .associate-card{
         max-width:720px;
         max-height:calc(100vh - 114px);
->>>>>>> refs/remotes/origin/main:CODIGO/styles.css
     }
 
     .associate-header h2{
