@@ -79,19 +79,64 @@
             la mutual escolar.
         </p>
 
-        <div class="card-benefit">
-            <h4>Hangar Fitness</h4>
-            <p>15% de descuento.</p>
-        </div>
+        <div class="benefits-carousel" aria-label="Carrusel de beneficios activos">
 
-        <div class="card-benefit">
-            <h4>Tienda Mínima y Río</h4>
-            <p>10% de descuento.</p>
-        </div>
+            <div class="card-benefit">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBpjXxAFbnZEX38SOzHvGBkWXduNqOWFVMWndjDPg5bQ&amp;s=10" alt="Logo Hangar Fitness">
+                <div>
+                    <h4>Hangar Fitness</h4>
+                    <p>15% de descuento.</p>
+                </div>
+            </div>
 
-        <div class="card-benefit">
-            <h4>Drugstore</h4>
-            <p>10% de descuento.</p>
+            <div class="card-benefit">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoPnu2s-91y3xZ_Ug9HLmvpMxfxlzv4YmHAiSJHfNKaQ&amp;s=10" alt="Logo Mínima">
+                <div>
+                    <h4>Mínima</h4>
+                    <p>10% de descuento.</p>
+                </div>
+            </div>
+
+            <div class="card-benefit">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmQEMk1unjRqcQFbZhyVn0VHpKEu1TqL1FltZzn4-vGw&amp;s=10" alt="Logo Río">
+                <div>
+                    <h4>Río</h4>
+                    <p>10% de descuento.</p>
+                </div>
+            </div>
+
+            <div class="card-benefit">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX_ppPBxD7oHKR3avCa4lkpSIIALNQyRTpr6wBqqq2mQ&amp;s=10" alt="Logo Alto Drugstore">
+                <div>
+                    <h4>Alto Drugstore</h4>
+                    <p>10% de descuento.</p>
+                </div>
+            </div>
+
+            <div class="card-benefit">
+                <div class="benefit-placeholder">+</div>
+                <div>
+                    <h4>Nuevo beneficio</h4>
+                    <p>Próximamente.</p>
+                </div>
+            </div>
+
+            <div class="card-benefit">
+                <div class="benefit-placeholder">+</div>
+                <div>
+                    <h4>Beneficio UNI2</h4>
+                    <p>A confirmar.</p>
+                </div>
+            </div>
+
+            <div class="card-benefit">
+                <div class="benefit-placeholder">+</div>
+                <div>
+                    <h4>Próximo local</h4>
+                    <p>Disponible para completar.</p>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -107,18 +152,18 @@
         <div>
 
             <span class="featured-subtitle">
-                BENEFICIOS UNI2
+                SOLO ASOCIADOS UNI2
             </span>
 
             <h2>
-                Precios de fotocopias
+                Servicios
             </h2>
 
         </div>
 
         <p>
-            Consultá los valores de fotocopias
-            para asociados y no asociados.
+            Recorré los beneficios, precios y servicios
+            disponibles para asociados.
         </p>
 
     </div>
@@ -227,7 +272,7 @@
                 </span>
 
                 <h3>
-                    Impresiones
+                    Impresiones a Color
                 </h3>
 
                 <p>
@@ -256,7 +301,7 @@
                 </span>
 
                 <h3>
-                    Plastificado
+                    Remeras Mutual
                 </h3>
 
                 <p>
@@ -664,6 +709,7 @@
     const loginModal = document.getElementById("login");
     const scheduleModal = document.getElementById("horarios");
     const slider = document.querySelector(".slider");
+    const benefitsCarousel = document.querySelector(".benefits-carousel");
     const associateForm = document.getElementById("associateForm");
     const contactForm = document.getElementById("contactForm");
     const loginForm = document.getElementById("loginForm");
@@ -813,7 +859,11 @@
         }
 
         const originalSlides = Array.from(slider.children);
-        let isPaused = false;
+        let isUserInteracting = false;
+        let resumeTimer;
+        let lastScrollLeft = slider.scrollLeft;
+        let lastAutoMoveAt = 0;
+        const autoScrollSpeed = 0.56;
 
         originalSlides.forEach((slide) => {
             const clone = slide.cloneNode(true);
@@ -826,29 +876,42 @@
             slider.appendChild(clone);
         });
 
-        slider.addEventListener("mouseenter", () => {
-            isPaused = true;
-        });
+        const loopPoint = slider.scrollWidth / 2;
 
-        slider.addEventListener("mouseleave", () => {
-            isPaused = false;
-        });
+        function pauseForManualMove(){
+            if(Date.now() - lastAutoMoveAt < 90){
+                return;
+            }
 
-        slider.addEventListener("focusin", () => {
-            isPaused = true;
-        });
+            isUserInteracting = true;
+            clearTimeout(resumeTimer);
 
-        slider.addEventListener("focusout", () => {
-            isPaused = false;
+            resumeTimer = setTimeout(() => {
+                isUserInteracting = false;
+            }, 900);
+        }
+
+        slider.addEventListener("wheel", pauseForManualMove, { passive:true });
+        slider.addEventListener("touchstart", pauseForManualMove, { passive:true });
+        slider.addEventListener("pointerdown", pauseForManualMove);
+        slider.addEventListener("scroll", () => {
+            if(Math.abs(slider.scrollLeft - lastScrollLeft) > 3){
+                pauseForManualMove();
+            }
+
+            lastScrollLeft = slider.scrollLeft;
         });
 
         function moveCarousel(){
-            if(!isPaused){
-                slider.scrollLeft += 0.8;
+            if(!isUserInteracting){
+                lastAutoMoveAt = Date.now();
+                let nextPosition = slider.scrollLeft + autoScrollSpeed;
 
-                if(slider.scrollLeft >= slider.scrollWidth / 2){
-                    slider.scrollLeft = 0;
+                if(nextPosition >= loopPoint){
+                    nextPosition -= loopPoint;
                 }
+
+                slider.scrollLeft = nextPosition;
             }
 
             requestAnimationFrame(moveCarousel);
@@ -858,6 +921,34 @@
     }
 
     startPriceCarousel();
+
+    function startBenefitsCarousel(){
+        if(!benefitsCarousel){
+            return;
+        }
+
+        const originalBenefits = Array.from(benefitsCarousel.children);
+
+        originalBenefits.forEach((benefit) => {
+            const clone = benefit.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            benefitsCarousel.appendChild(clone);
+        });
+
+        function moveBenefits(){
+            benefitsCarousel.scrollTop += 0.75;
+
+            if(benefitsCarousel.scrollTop >= benefitsCarousel.scrollHeight / 2){
+                benefitsCarousel.scrollTop -= benefitsCarousel.scrollHeight / 2;
+            }
+
+            requestAnimationFrame(moveBenefits);
+        }
+
+        moveBenefits();
+    }
+
+    startBenefitsCarousel();
 
     associateForm.addEventListener("submit", (event) => {
         event.preventDefault();
