@@ -31,6 +31,8 @@ body{
         rgba(247, 165, 0, 0.26)
     ),
     #ffffff;
+    position:relative;
+
     color:#141414;
     overflow-x:hidden;
     -ms-overflow-style:none;
@@ -153,7 +155,11 @@ body.dark-mode .nav-links a{
     padding:140px 8% 70px;
     position:relative;
     overflow:hidden;
+
+    /* para que el degradado se vea continuo hacia la sección de servicios */
+    background:transparent;
 }
+
 
 .hero::before{
     content:"";
