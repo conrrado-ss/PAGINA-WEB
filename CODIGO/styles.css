@@ -933,6 +933,19 @@ body.dark-mode .contact-tabs span{
     gap:12px;
 }
 
+.remeras-grid{
+    grid-template-columns:repeat(5,1fr);
+}
+
+.remeras-grid article{
+    cursor:default;
+}
+
+.remeras-grid strong{
+    font-size:18px;
+}
+
+
 .week-calendar article{
     min-height:154px;
     padding:16px;

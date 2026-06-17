@@ -162,8 +162,10 @@
         </div>
 
         <p>
-            Recorré los beneficios, precios y servicios
-            disponibles para asociados.
+            Recorre los Servicios Disponibles.
+
+            
+
         </p>
 
     </div>
@@ -309,7 +311,7 @@
                     nuevos precios UNI2.
                 </p>
 
-                <button>
+                <button type="button" id="openReberasSlide">
                     Consultar
                 </button>
 
@@ -685,6 +687,66 @@
 
 </section>
 
+<!-- REMERAS MUTUAL -->
+
+<section class="schedule-section" id="remeras" aria-hidden="true">
+
+    <div class="associate-card schedule-card" role="dialog" aria-modal="true" aria-labelledby="remerasTitle">
+
+        <div class="associate-header">
+            <button type="button" class="close-associate" id="closeReberas">
+                ×
+            </button>
+
+            <img class="modal-logo" src="../LOJO_UNI2.png" alt="Logo UNI2">
+            <h2 id="remerasTitle">Remeras Mutual UNI2</h2>
+            <p>Talles y precios (a confirmar)</p>
+        </div>
+
+        <div class="schedule-content">
+
+            <div class="week-calendar remeras-grid" aria-label="Talles y precios de remeras">
+                <article>
+                    <span>Talle</span>
+                    <strong>S</strong>
+                    <p>Precio: a definir</p>
+                </article>
+
+                <article>
+                    <span>Talle</span>
+                    <strong>M</strong>
+                    <p>Precio: a definir</p>
+                </article>
+
+                <article>
+                    <span>Talle</span>
+                    <strong>L</strong>
+                    <p>Precio: a definir</p>
+                </article>
+
+                <article>
+                    <span>Talle</span>
+                    <strong>XL</strong>
+                    <p>Precio: a definir</p>
+                </article>
+
+                <article>
+                    <span>Talle</span>
+                    <strong>XXL</strong>
+                    <p>Precio: a definir</p>
+                </article>
+            </div>
+
+        </div>
+
+        <div class="associate-footer">
+            Los precios se completarán cuando estén confirmados
+        </div>
+
+    </div>
+
+</section>
+
 <div class="thanks-message" id="thanksMessage">
     <h2>
         Muchas gracias por ser parte de la mutual
@@ -700,14 +762,18 @@
     const openLoginNav = document.getElementById("openLoginNav");
     const openScheduleHero = document.getElementById("openScheduleHero");
     const openContact = document.getElementById("openContact");
+    const openReberasSlide = document.getElementById("openReberasSlide");
     const closeAssociate = document.getElementById("closeAssociate");
     const closeContact = document.getElementById("closeContact");
     const closeLogin = document.getElementById("closeLogin");
     const closeSchedule = document.getElementById("closeSchedule");
+    const closeReberas = document.getElementById("closeReberas");
     const associateModal = document.getElementById("asociarme");
     const contactModal = document.getElementById("contacto");
     const loginModal = document.getElementById("login");
     const scheduleModal = document.getElementById("horarios");
+    const remerasModal = document.getElementById("remeras");
+
     const slider = document.querySelector(".slider");
     const benefitsCarousel = document.querySelector(".benefits-carousel");
     const associateForm = document.getElementById("associateForm");
@@ -760,6 +826,10 @@
         openModal(scheduleModal, event);
     }
 
+    function openReberasModal(event){
+        openModal(remerasModal, event);
+    }
+
     function closeAssociateModal(){
         closeModal(associateModal);
     }
@@ -775,6 +845,11 @@
     function closeScheduleModal(){
         closeModal(scheduleModal);
     }
+
+    function closeReberasModal(){
+        closeModal(remerasModal);
+    }
+
 
     function launchConfetti(){
         const colors = ["#1db954", "#2d46b9", "#ff1744", "#f7a400", "#ffffff"];
@@ -798,10 +873,13 @@
     openContact.addEventListener("click", openContactModal);
     openLoginNav.addEventListener("click", openLoginModal);
     openScheduleHero.addEventListener("click", openScheduleModal);
+    openReberasSlide && openReberasSlide.addEventListener("click", openReberasModal);
     closeAssociate.addEventListener("click", closeAssociateModal);
     closeContact.addEventListener("click", closeContactModal);
     closeLogin.addEventListener("click", closeLoginModal);
     closeSchedule.addEventListener("click", closeScheduleModal);
+    closeReberas && closeReberas.addEventListener("click", closeReberasModal);
+
 
     themeToggle.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
@@ -833,6 +911,12 @@
         }
     });
 
+    remerasModal.addEventListener("click", (event) => {
+        if(event.target === remerasModal){
+            closeReberasModal();
+        }
+    });
+
     document.addEventListener("keydown", (event) => {
         if(event.key === "Escape"){
             if(associateModal.classList.contains("is-open")){
@@ -850,13 +934,20 @@
             if(scheduleModal.classList.contains("is-open")){
                 closeScheduleModal();
             }
+
+            if(remerasModal.classList.contains("is-open")){
+                closeReberasModal();
+            }
         }
     });
+
 
     function startPriceCarousel(){
         if(!slider){
             return;
         }
+
+            slider.style.scrollBehavior = "auto";
 
         const originalSlides = Array.from(slider.children);
         let isUserInteracting = false;
@@ -878,25 +969,44 @@
 
         const loopPoint = slider.scrollWidth / 2;
 
+        function beginUserInteraction(){
+            isUserInteracting = true;
+            slider.style.scrollBehavior = "smooth";
+            clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(() => {
+                isUserInteracting = false;
+                slider.style.scrollBehavior = "auto";
+            }, 900);
+        }
+
         function pauseForManualMove(){
             if(Date.now() - lastAutoMoveAt < 90){
                 return;
             }
 
-            isUserInteracting = true;
-            clearTimeout(resumeTimer);
-
-            resumeTimer = setTimeout(() => {
-                isUserInteracting = false;
-            }, 900);
+            beginUserInteraction();
         }
 
         slider.addEventListener("wheel", pauseForManualMove, { passive:true });
         slider.addEventListener("touchstart", pauseForManualMove, { passive:true });
         slider.addEventListener("pointerdown", pauseForManualMove);
+
+        window.addEventListener("pointerup", () => {
+            clearTimeout(resumeTimer);
+            resumeTimer = setTimeout(() => {
+                isUserInteracting = false;
+                slider.style.scrollBehavior = "auto";
+            }, 350);
+        });
+
+        slider.addEventListener("pointercancel", () => {
+            isUserInteracting = false;
+            slider.style.scrollBehavior = "auto";
+        });
+
         slider.addEventListener("scroll", () => {
             if(Math.abs(slider.scrollLeft - lastScrollLeft) > 3){
-                pauseForManualMove();
+                beginUserInteraction();
             }
 
             lastScrollLeft = slider.scrollLeft;
@@ -905,6 +1015,7 @@
         function moveCarousel(){
             if(!isUserInteracting){
                 lastAutoMoveAt = Date.now();
+                slider.style.scrollBehavior = "auto";
                 let nextPosition = slider.scrollLeft + autoScrollSpeed;
 
                 if(nextPosition >= loopPoint){
