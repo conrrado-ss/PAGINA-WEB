@@ -5,6 +5,41 @@
     font-family:'Montserrat',sans-serif;
 }
 
+/* Usá esta clase para aplicar la tipografía "Nothing You Could Do" */
+.nothing-you-could-do{
+    font-family:'Nothing You Could Do', cursive;
+}
+
+/* Titulares: Montserrat */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family:'Montserrat', sans-serif;
+    font-weight:900;
+}
+
+
+/* Subtitulos/detalles: Nothing You Could Do */
+.featured-subtitle,
+.hero-text span,
+.tag,
+.hero-card p,
+.featured-header p,
+.week-calendar span,
+.week-calendar p,
+.contact-tabs a,
+.contact-tabs span,
+.associate-header p,
+.associate-footer,
+.thanks-message h2{
+    font-family:'Nothing You Could Do', cursive;
+}
+
+
+
 html{
     scroll-behavior:smooth;
     scrollbar-width:none;
