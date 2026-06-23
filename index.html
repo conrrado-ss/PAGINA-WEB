@@ -12,6 +12,7 @@
 </head>
 <body id="inicio">
     <div class="page">
+        <div class="bg-smooth" aria-hidden="true"></div>
         <header class="topbar">
             <a class="brand" href="#inicio" aria-label="Volver al inicio">
                 <img src="LOJO_UNI2.png" alt="Logo UNI2">
@@ -33,7 +34,7 @@
         </header>
 
         <main>
-            <section class="hero" aria-labelledby="presentacion-title">
+            <section class="hero js-section" aria-labelledby="presentacion-title">
                 <div class="section-inner hero-layout">
                     <div>
                         <span class="eyebrow">Mutual Escolar UNI2</span>
@@ -62,7 +63,7 @@
                 </div>
             </section>
 
-            <section class="services" id="servicios" aria-labelledby="servicios-title">
+            <section class="services js-section" id="servicios" aria-labelledby="servicios-title">
                 <div class="section-inner">
                     <div class="section-heading">
                         <div>
@@ -111,7 +112,7 @@
                 </div>
             </section>
 
-            <section class="benefits" id="beneficios" aria-labelledby="beneficios-title">
+            <section class="benefits js-section" id="beneficios" aria-labelledby="beneficios-title">
                 <div class="section-inner">
                     <div class="benefit-cloud js-auto-slider">
                         <div class="benefit-title">
@@ -190,7 +191,7 @@
                 </div>
             </section>
 
-            <section class="ads" aria-labelledby="publicidad-title">
+            <section class="ads js-section" aria-labelledby="publicidad-title">
                 <div class="section-inner">
                     <div class="section-heading">
                         <div>
@@ -236,7 +237,7 @@
                 </div>
             </section>
 
-            <section class="join" id="como-asociarse" aria-labelledby="asociarse-title">
+            <section class="join js-section" id="como-asociarse" aria-labelledby="asociarse-title">
                 <div class="section-inner">
                     <span class="eyebrow">Cómo ser parte de UNI2</span>
                     <h2 id="asociarse-title">Asociate en cuatro pasos</h2>
@@ -282,7 +283,7 @@
             </section>
         </main>
 
-        <footer class="footer" id="contacto">
+        <footer class="footer js-section" id="contacto">
             <div class="section-inner footer-grid">
                 <div>
                     <a class="brand" href="#inicio" aria-label="Volver al inicio">
@@ -309,8 +310,73 @@
         </footer>
     </div>
 
+    <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Cambiar a modo oscuro/claro" title="Cambiar tema">
+        <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+    </button>
+
     <script>
+        const THEME_KEY = "uni2_theme";
+        const root = document.documentElement;
+
+        const getPreferredTheme = () => {
+            const stored = localStorage.getItem(THEME_KEY);
+            if (stored === "light" || stored === "dark") return stored;
+            return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        };
+
+        const applyTheme = (theme) => {
+            root.dataset.theme = theme;
+            const btn = document.getElementById("theme-toggle");
+            if (!btn) return;
+            const icon = btn.querySelector(".theme-toggle__icon");
+            if (!icon) return;
+            icon.textContent = theme === "dark" ? "☀" : "☾";
+        };
+
+        const initTheme = () => {
+            applyTheme(getPreferredTheme());
+        };
+
+        initTheme();
+
+        const btn = document.getElementById("theme-toggle");
+        if (btn) {
+            btn.addEventListener("click", () => {
+                const current = root.dataset.theme === "dark" ? "dark" : "light";
+                const next = current === "dark" ? "light" : "dark";
+                localStorage.setItem(THEME_KEY, next);
+                applyTheme(next);
+            });
+        }
+
         const sliders = document.querySelectorAll(".js-auto-slider");
+
+        // Transiciones suaves entre secciones
+        const sections = document.querySelectorAll(".js-section");
+        const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (!prefersReducedMotion && "IntersectionObserver" in window) {
+            const io = new IntersectionObserver(
+                (entries) => {
+                    for (const entry of entries) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("is-visible");
+                            entry.target.classList.remove("is-hidden");
+                            io.unobserve(entry.target);
+                        }
+                    }
+                },
+                { root: null, threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
+            );
+
+            sections.forEach((s) => {
+                s.classList.add("is-hidden");
+                io.observe(s);
+            });
+        } else {
+            // Sin animaciones: se muestran normal
+            sections.forEach((s) => s.classList.add("is-visible"));
+        }
 
         sliders.forEach((slider) => {
             let paused = false;
