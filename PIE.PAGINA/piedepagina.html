@@ -1,0 +1,309 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pie de Página - Mutual UNI2</title>
+    <!-- Iconos de FontAwesome para las redes y datos de contacto -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        /* --- ESTILOS DEL FOOTER CREATIVO --- */
+        .custom-footer {
+            background-color: #1a1a24;
+            color: #ffffff;
+            position: relative;
+            padding: 60px 20px 20px 20px;
+            font-size: 14px;
+            overflow: hidden;
+        }
+
+        /* Línea superior decorativa con los 4 colores del logo de UNI2 */
+        .footer-top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            display: flex;
+        }
+        .bar-orange { background-color: #f19c20; flex: 1; }
+        .bar-red    { background-color: #e52427; flex: 1; }
+        .bar-blue   { background-color: #2b449c; flex: 1; }
+        .bar-green  { background-color: #3ca34b; flex: 1; }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        /* Columna 1: Identidad */
+        .footer-brand h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+        .footer-brand h2 span {
+            color: #f19c20; /* Resalta en naranja */
+        }
+        .footer-brand p {
+            color: #a0a0b0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* Columna 2: Enlaces (Más Recursos) */
+        .footer-links h3, .footer-contact h3, .footer-cta h3 {
+            font-size: 16px;
+            position: relative;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        /* Subrayado de color dinámico para los títulos */
+        .footer-links h3::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background-color: #3ca34b; }
+        .footer-contact h3::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background-color: #2b449c; }
+        .footer-cta h3::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 3px; background-color: #e52427; }
+
+        .footer-links ul {
+            list-style: none;
+        }
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        .footer-links ul li a {
+            color: #a0a0b0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-links ul li a:hover {
+            color: #ffffff;
+            padding-left: 6px;
+        }
+
+        /* Columna 3: Datos de Contacto */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #a0a0b0;
+        }
+        .contact-item i {
+            margin-right: 12px;
+            font-size: 16px;
+            margin-top: 3px;
+        }
+        .contact-item.location i { color: #f19c20; }
+        .contact-item.phone i { color: #3ca34b; }
+        .contact-item.email i { color: #2b449c; }
+
+        .contact-item a {
+            color: #a0a0b0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .contact-item a:hover {
+            color: #ffffff;
+        }
+
+        /* Columna 4: CTA (Llamado a la acción) y Redes Sociales */
+        .footer-cta p {
+            color: #a0a0b0;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        /* Contenedor del botón y el dedo señalando */
+        .cta-button-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Animación para el dedo que señala */
+        @keyframes señalar {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .cta-finger {
+            font-size: 20px;
+            color: #e52427;
+            animation: señalar 1.2s infinite ease-in-out;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: #e52427;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(229, 36, 39, 0.3);
+        }
+        .btn-cta:hover {
+            background-color: #ff3337;
+            transform: translateY(-2px);
+        }
+
+        /* Red Social Estilo Instagram */
+        .social-container {
+            margin-top: 25px;
+        }
+        .social-title {
+            font-size: 12px;
+            color: #707080;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            transition: transform 0.3s;
+        }
+        .instagram-link:hover {
+            transform: scale(1.05);
+        }
+        .instagram-link i {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        /* Barra Inferior de Copyright */
+        .footer-bottom {
+            border-top: 1px solid #2a2a35;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            color: #707080;
+            font-size: 13px;
+            width: 100%;
+        }
+        .footer-bottom p span {
+            color: #ffffff;
+        }
+
+        /* Responsivo para celulares */
+        @media (max-width: 768px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="custom-footer">
+        <!-- Barra de colores identitaria -->
+        <div class="footer-top-bar">
+            <div class="bar-orange"></div>
+            <div class="bar-red"></div>
+            <div class="bar-blue"></div>
+            <div class="bar-green"></div>
+        </div>
+
+        <div class="footer-container">
+            
+            <!-- 1. Identidad / Enfoque al Usuario -->
+            <div class="footer-brand">
+                <h2>MUTUAL <span>UNI2</span></h2>
+                <p>Un espacio creado por y para los estudiantes, promoviendo valores, solidaridad y crecimiento conjunto.</p>
+            </div>
+
+            <!-- 2. Recursos (Estructura interna) -->
+            <div class="footer-links">
+                <h3>Recursos</h3>
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Inicio</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Autoridades</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Proyectos</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> Estatuto</a></li>
+                </ul>
+            </div>
+
+            <!-- 3. Contacto (Gmail, Teléfono, Ubicación) -->
+            <div class="footer-contact">
+                <h3>Contacto</h3>
+                <div class="contact-item email">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:unidosatencionalcliente@gmail.com">Unidosatencionalcliente@gmail.com</a>
+                </div>
+                <div class="contact-item phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <a href="https://wa.me/5492984210672" target="_blank">+54 9 298 421-0672</a>
+                </div>
+                <div class="contact-item location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>CHACABUCO 1050<br>General Roca, Río Negro (CP 8332)</span>
+                </div>
+            </div>
+
+            <!-- 4. Llamado a la Acción y Redes -->
+            <div class="footer-cta">
+                <h3>¡Sumate!</h3>
+                <p>¿Tenés alguna duda o querés formar parte de nuestras actividades?</p>
+                
+                <div class="cta-button-container">
+                    <i class="fa-solid fa-hand-point-right cta-finger"></i>
+                    <a href="mailto:unidosatencionalcliente@gmail.com" class="btn-cta">Asociate Ahora</a>
+                </div>
+                
+                <div class="social-container">
+                    <span class="social-title">Seguinos en Instagram</span>
+                    <a href="https://www.instagram.com/unidos.cet3" target="_blank" class="instagram-link">
+                        <i class="fa-brands fa-instagram"></i> @unidos.cet3
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Barra final de derechos de autor -->
+        <div class="footer-container" style="margin-bottom: 0;">
+            <div class="footer-bottom">
+                <p>&copy; 2026 <span>Mutual Escolar UNI2</span> - CET N° 3. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
