@@ -7,6 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        (() => {
+            const storedTheme = localStorage.getItem("uni2_theme");
+            const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
+        })();
+    </script>
     <link rel="stylesheet" href="style2.css">
 
 </head>
@@ -383,9 +390,34 @@
         </footer>
     </div>
 
+    <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema">
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><i data-lucide="moon"></i></span>
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><i data-lucide="sun"></i></span>
+    </button>
+
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script>
         if (window.lucide) lucide.createIcons();
+
+        const THEME_KEY = "uni2_theme";
+        const root = document.documentElement;
+        const themeToggle = document.getElementById("theme-toggle");
+
+        const setTheme = (theme) => {
+            root.dataset.theme = theme;
+            localStorage.setItem(THEME_KEY, theme);
+            if (!themeToggle) return;
+            const isDark = theme === "dark";
+            themeToggle.setAttribute("aria-label", isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+            themeToggle.setAttribute("title", isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+        };
+
+        if (themeToggle) {
+            setTheme(root.dataset.theme === "dark" ? "dark" : "light");
+            themeToggle.addEventListener("click", () => {
+                setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+            });
+        }
 
         const sliders = document.querySelectorAll(".js-auto-slider");
 
