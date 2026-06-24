@@ -43,10 +43,19 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    scrollbar-width: none;
 }
 
 html {
     scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 body {
@@ -129,8 +138,8 @@ a {
 }
 
 .brand span {
-    color: var(--azul);
-    font-size: 1.08rem;
+    color: var(--texto);
+    font-size: 1.28rem;
     letter-spacing: -0.02em;
 }
 
@@ -140,6 +149,7 @@ a {
 
 .menu-button {
     display: none;
+    position: relative;
     width: 46px;
     height: 46px;
     border: 1px solid var(--linea);
@@ -153,19 +163,39 @@ a {
 .menu-button::before,
 .menu-button::after {
     display: block;
+    position: absolute;
+    left: 50%;
     width: 22px;
     height: 2px;
     background: var(--azul);
     border-radius: 999px;
     content: "";
+    transform: translateX(-50%);
+    transition: transform 180ms ease, opacity 180ms ease, background-color 180ms ease;
+}
+
+.menu-button span {
+    top: 50%;
 }
 
 .menu-button::before {
-    transform: translateY(-7px);
+    top: calc(50% - 7px);
 }
 
 .menu-button::after {
-    transform: translateY(7px);
+    top: calc(50% + 7px);
+}
+
+.menu-toggle:checked + .menu-button span {
+    opacity: 0;
+}
+
+.menu-toggle:checked + .menu-button::before {
+    transform: translateX(-50%) translateY(7px) rotate(45deg);
+}
+
+.menu-toggle:checked + .menu-button::after {
+    transform: translateX(-50%) translateY(-7px) rotate(-45deg);
 }
 
 .nav {
@@ -654,11 +684,11 @@ p {
     overflow-x: auto;
     padding: 8px 2px 22px;
     scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
+    scrollbar-width: none;
 }
 
 .carousel::-webkit-scrollbar {
-    height: 10px;
+    display: none;
 }
 
 .carousel::-webkit-scrollbar-thumb {
@@ -974,6 +1004,11 @@ p {
 
 .price-table-wrap {
     overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.price-table-wrap::-webkit-scrollbar {
+    display: none;
 }
 
 .price-table {
@@ -1081,6 +1116,59 @@ p {
 .spec-grid h3 {
     margin-bottom: 8px;
     font-size: 1.25rem;
+}
+
+.booklet-panel {
+    align-content: start;
+}
+
+.booklet-panel > p {
+    margin-top: -12px;
+}
+
+.booklet-pricing {
+    display: grid;
+    gap: 18px;
+}
+
+.booklet-group {
+    overflow: hidden;
+    border: 1px solid var(--linea);
+    border-radius: 18px;
+    background: var(--surface-solid);
+}
+
+.booklet-group-head {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    padding: 18px;
+    background:
+        linear-gradient(135deg, rgba(63, 81, 181, 0.12), rgba(76, 203, 74, 0.10)),
+        var(--surface-muted);
+}
+
+.booklet-group-head > span {
+    display: grid;
+    flex: 0 0 auto;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border-radius: 50%;
+    background-image: var(--grain), linear-gradient(135deg, var(--rojo-dark) 0 24%, var(--rojo) 48% 100%);
+    background-blend-mode: soft-light, normal;
+    color: var(--blanco);
+    font-weight: 950;
+}
+
+.booklet-group-head h3 {
+    margin-bottom: 4px;
+}
+
+.booklet-table {
+    min-width: 620px;
+    border: 0;
+    border-radius: 0;
 }
 
 .custom-footer {
@@ -1344,7 +1432,7 @@ p {
     }
 
     .brand span {
-        font-size: 0.98rem;
+        font-size: 1.16rem;
     }
 
     .menu-button {
@@ -1365,7 +1453,7 @@ p {
         padding: 14px;
         border: 1px solid var(--linea);
         border-radius: 24px;
-        background: rgba(255, 255, 255, 0.96);
+        background: var(--modal-bg);
         backdrop-filter: blur(18px);
         box-shadow: var(--sombra);
     }
@@ -1385,14 +1473,16 @@ p {
 
     .hero {
         min-height: auto;
+        padding-top: 82px;
+        padding-bottom: 96px;
         background:
-            linear-gradient(158deg, var(--fondo) 0 60%, transparent 60%),
-            linear-gradient(145deg, var(--azul-dark) 0 52%, var(--azul) 58% 70%, var(--amarillo-dark) 70%, var(--amarillo) 74% 84%, var(--rojo-dark) 84%, var(--rojo) 88% 100%);
+            linear-gradient(180deg, var(--fondo) 0 68%, transparent 68%),
+            linear-gradient(145deg, var(--azul-dark) 0 50%, var(--azul) 58% 70%, var(--amarillo-dark) 70%, var(--amarillo) 75% 84%, var(--rojo-dark) 84%, var(--rojo) 90% 100%);
     }
 
     .hero::after {
-        -webkit-mask-image: linear-gradient(158deg, transparent 0 60%, #000 60%);
-        mask-image: linear-gradient(158deg, transparent 0 60%, #000 60%);
+        -webkit-mask-image: linear-gradient(180deg, transparent 0 68%, #000 68%);
+        mask-image: linear-gradient(180deg, transparent 0 68%, #000 68%);
     }
 
     .section-heading {
@@ -1404,8 +1494,14 @@ p {
     }
 
     .footer-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+        margin-bottom: 24px;
+    }
+
+    .footer-brand,
+    .footer-cta {
+        grid-column: 1 / -1;
     }
 
     .footer-bottom {
@@ -1433,6 +1529,29 @@ p {
 }
 
 @media (max-width: 640px) {
+    .topbar {
+        gap: 8px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand img {
+        width: 44px;
+        height: 44px;
+    }
+
+    .brand span {
+        font-size: 1.22rem;
+    }
+
+    .menu-button {
+        flex: 0 0 auto;
+        width: 44px;
+        height: 44px;
+    }
+
     .service-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
@@ -1471,11 +1590,20 @@ p {
     }
 
     .benefit-links {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(82%, 1fr);
+        grid-template-columns: none;
         gap: 12px;
+        overflow-x: auto;
+        padding: 2px 2px 14px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
     }
 
     .benefit-mix-card {
         border-radius: 14px;
+        scroll-snap-align: center;
     }
 
     .benefit-rubric {
@@ -1495,8 +1623,28 @@ p {
         padding: 62px 16px;
     }
 
+    .custom-footer {
+        padding: 34px 16px 16px;
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px 18px;
+    }
+
+    .footer-links h3,
+    .footer-contact h3,
+    .footer-cta h3 {
+        margin-bottom: 12px;
+    }
+
+    .footer-links li,
+    .contact-item {
+        margin-bottom: 9px;
+    }
+
     h1 {
-        font-size: clamp(3rem, 15vw, 4.5rem);
+        font-size: clamp(2.55rem, 13vw, 4rem);
     }
 
     .hero-actions,
@@ -1544,6 +1692,10 @@ p {
 
     .price-table {
         min-width: 520px;
+    }
+
+    .booklet-table {
+        min-width: 560px;
     }
 
     .print-contact,
