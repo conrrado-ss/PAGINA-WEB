@@ -15,7 +15,7 @@
             document.documentElement.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
         })();
     </script>
-    <link rel="stylesheet" href="../style2.css">
+    <link rel="stylesheet" href="../../style2.css">
 </head>
 <body>
     <div class="page detail-page">
@@ -30,24 +30,75 @@
         <main>
             <section class="service-detail" aria-labelledby="detail-title">
                 <div class="section-inner detail-layout">
-                    <div class="detail-copy">
+                    <div class="detail-copy" style="display:none;">
                         <span class="eyebrow">Servicio</span>
                         <h1 id="detail-title">Uniformes</h1>
                         <p>Prendas oficiales disponibles a través de la mutual para acompañar la cursada.</p>
                     </div>
 
                     <div class="detail-panel">
-                        <h2>Productos</h2>
-                        <div class="spec-grid">
-                            <article>
-                                <h3>Remeras</h3>
-                                <p>Consultá talles, stock y disponibilidad en la mutual.</p>
-                            </article>
-                            <article>
-                                <h3>Camperas</h3>
-                                <p>Prendas oficiales sujetas a disponibilidad.</p>
-                            </article>
+                        <div class="uniformes-pricing-grid" aria-label="Precios de uniformes">
+                            <div class="booklet-group booklet-group--remeras">
+                                <div class="booklet-group-head">
+                                    <span class="cycle-code" style="background-image: var(--grain), linear-gradient(135deg, var(--azul-dark) 0 24%, var(--azul) 48% 100%);">R</span>
+                                    <div>
+                                        <h3 style="display:none;">Remeras</h3>
+                                        <p style="display:none;">Precios exclusivos para asociados.</p>
+                                    </div>
+                                </div>
+
+                                <div class="price-table-wrap">
+                                    <table class="price-table booklet-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Talle / Modelo</th>
+                                                <th>Asociado</th>
+                                                <th>No asociado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><th>Remera (consulta por talles)</th><td><span class="exclusive">$2.550</span></td><td>$3.400</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="uniformes-logo-placeholder" aria-label="Logo para remeras (pendiente)" role="group">
+                                    <p class="uniformes-logo-text">* *Logos ( para poner en remeras):* $4.000 (Exclusivo para asociados).</p>
+                                </div>
+                            </div>
+
+                            <div class="booklet-group booklet-group--camperas">
+                                <div class="booklet-group-head">
+                                    <span class="cycle-code" style="background-image: var(--grain), linear-gradient(135deg, var(--verde-dark) 0 24%, var(--verde) 48% 100%);">C</span>
+                                    <div>
+                                        <h3 style="display:none;">Camperas</h3>
+                                        <p style="display:none;">Precios exclusivos para asociados.</p>
+                                    </div>
+                                </div>
+
+                                <div class="price-table-wrap">
+                                    <table class="price-table booklet-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Talle / Modelo</th>
+                                                <th>Asociado</th>
+                                                <th>No asociado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><th>Campera (consulta por talles)</th><td><span class="exclusive">$4.050</span></td><td>$5.400</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
+
+
+                        <div class="uniformes-media-grid" aria-label="Espacio para fotos de remeras y camperas">
+                            <article class="uniformes-media-card" aria-label="Foto de remeras (pendiente)"></article>
+                            <article class="uniformes-media-card" aria-label="Foto de camperas (pendiente)"></article>
+                        </div>
+
                         <aside class="print-contact">
                             <span class="print-icon" aria-hidden="true"><i data-lucide="shirt"></i></span>
                             <div>

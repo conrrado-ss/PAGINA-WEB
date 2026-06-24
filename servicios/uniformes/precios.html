@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uniformes - UNI2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        (() => {
+            const storedTheme = localStorage.getItem("uni2_theme");
+            const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
+        })();
+    </script>
+    <link rel="stylesheet" href="../../style2.css">
+</head>
+<body>
+    <div class="page detail-page">
+        <header class="topbar">
+            <a class="brand" href="../index.html#inicio" aria-label="Volver al inicio">
+                <img src="../LOJO_UNI2.png" alt="Logo UNI2">
+                <span>UNI2</span>
+            </a>
+            <a class="cta" href="../index.html#servicios">Volver a servicios</a>
+        </header>
+
+        <main>
+            <section class="service-detail" aria-labelledby="detail-title">
+                <div class="section-inner detail-layout">
+                    <div class="detail-header-row" aria-label="Encabezado del contenido">
+                        <aside class="detail-mini-card detail-mini-card--top" aria-label="Servicio de uniformes" style="display:block;">
+                            <span class="eyebrow">Servicio</span>
+                            <h1 id="detail-title" style="display:none;">Uniformes</h1>
+
+                            <div class="uniformes-hero-copy" aria-hidden="false">
+                                <span class="eyebrow">Servicio</span>
+                                <h2 class="uniformes-hero-title" style="margin-top: 18px;">Materiales de cursada</h2>
+                                <p class="uniformes-hero-subtitle">Prendas oficiales disponibles a través de la mutual para acompañar la cursada.</p>
+                            </div>
+                        </aside>
+
+                        <div class="detail-panel" aria-label="Precios de uniformes">
+                            <div class="uniformes-pricing-grid" aria-label="Cuadros de uniformes">
+                                <div class="booklet-group booklet-group--remeras" aria-label="Cuadro de remeras">
+                                    <div class="booklet-group-head">
+                                        <span class="cycle-code" style="background-image: var(--grain), linear-gradient(135deg, var(--azul-dark) 0 24%, var(--azul) 48% 100%);">R</span>
+                                        <div>
+                                            <h3>Remeras</h3>
+                                            <p>Precios exclusivos para asociados.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="price-table-wrap">
+                                        <table class="price-table booklet-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Talle / Modelo</th>
+                                                    <th>Asociado</th>
+                                                    <th>No asociado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><th>Remera (consulta por talles)</th><td><span class="exclusive">$2.550</span></td><td>$3.400</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="booklet-group booklet-group--camperas" aria-label="Cuadro de camperas">
+                                    <div class="booklet-group-head">
+                                        <span class="cycle-code" style="background-image: var(--grain), linear-gradient(135deg, var(--verde-dark) 0 24%, var(--verde) 48% 100%);">C</span>
+                                        <div>
+                                            <h3>Camperas</h3>
+                                            <p>Precios exclusivos para asociados.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="price-table-wrap">
+                                        <table class="price-table booklet-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Talle / Modelo</th>
+                                                    <th>Asociado</th>
+                                                    <th>No asociado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><th>Campera (consulta por talles)</th><td><span class="exclusive">$4.050</span></td><td>$5.400</td></tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="uniformes-logo-placeholder uniformes-logo-placeholder--3" aria-label="Tercer cuadro de logos">
+                                    <p class="uniformes-logo-text">
+                                        <span style="font-weight: 900;">* *Logos ( para poner en remeras):* </span>$4.000 (Exclusivo para asociados).
+                                    </p>
+
+                                    <div class="uniformes-logo-foto-placeholder" aria-label="Espacio futuro para foto" role="group"></div>
+                                </div>
+                            </div>
+
+                            <div class="uniformes-media-grid" aria-label="Espacio para fotos de remeras y camperas">
+                                <article class="uniformes-media-card" aria-label="Foto de remeras (pendiente)"></article>
+                                <article class="uniformes-media-card" aria-label="Foto de camperas (pendiente)"></article>
+                            </div>
+
+                            <aside class="print-contact" aria-label="Contacto">
+                                <span class="print-icon" aria-hidden="true"><i data-lucide="shirt"></i></span>
+                                <div>
+                                    <h3>Consultá por talles y stock</h3>
+                                    <a href="mailto:uni2mutual@gmail.com">uni2mutual@gmail.com</a>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+</section>
