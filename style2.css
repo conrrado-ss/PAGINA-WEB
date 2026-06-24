@@ -971,9 +971,186 @@ p {
 
 .detail-layout {
     display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
-    gap: clamp(32px, 6vw, 76px);
+    grid-template-columns: 1fr;
+    gap: 18px;
+    align-items: start;
+}
+
+a#arriba {
+    display: block;
+    position: relative;
+    top: -92px;
+    height: 1px;
+    width: 1px;
+}
+
+/* ===== Cuadernillos y anillado: layout correcto ===== */
+.detail-panel.booklet-panel {
+    width: 100%;
+}
+
+.detail-title-row {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-title-row > h1 {
+    max-width: none !important;
+}
+
+/* Título arriba ocupando todo el ancho; cuadros abajo en 2 columnas */
+.detail-panel.booklet-panel > .cycle-wrap {
+    width: 100%;
+}
+
+.detail-panel.booklet-panel > .cycle-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+/* desktop: 2 cajas (C.B y C.S) lado a lado */
+@media (min-width: 641px) {
+    .detail-panel.booklet-panel > .cycle-wrap {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        align-items: start;
+    }
+
+    .cycle-toggle {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Evitar recortes: que las tablas usen el ancho del contenedor */
+.price-table-wrap {
+    width: 100%;
+}
+
+.price-table {
+    width: 100%;
+    min-width: 0;
+}
+
+/* print-contact: al final, separado de los cuadros */
+.booklet-panel .print-contact {
+    margin-top: 18px;
+}
+
+/* mobile: botón/tabla ocupa 1 columna */
+@media (max-width: 640px) {
+    .detail-panel.booklet-panel > .cycle-wrap {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.detail-header-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.detail-mini-card--top {
+    max-width: 820px;
+}
+
+.booklet-panel {
+    justify-self: stretch;
+    width: 100%;
+}
+
+
+.detail-mini-card {
+    align-self: start;
+    padding: clamp(18px, 3vw, 28px);
+    border: 1px solid rgba(63, 81, 181, 0.12);
+    border-top: 8px solid var(--azul);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 28px 70px rgba(23, 32, 59, 0.18);
+    backdrop-filter: blur(16px);
+}
+
+.cycle-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    align-items: start;
+}
+
+.cycle-toggle {
+    display: none;
+}
+
+.cycle-toggle-btn {
+    border: 1px solid var(--linea);
+    background: var(--surface-solid);
+    color: var(--texto);
+    padding: 12px 14px;
+    border-radius: 999px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.cycle-toggle-btn:hover {
+    border-color: rgba(63, 81, 181, 0.35);
+    color: var(--azul);
+}
+
+.cycle-card {
+    min-width: 0;
+}
+
+
+.cycle-card {
+    border: 1px solid var(--linea);
+    border-top: 8px solid var(--azul);
+    border-radius: 18px;
+    background: var(--surface-solid);
+    overflow: hidden;
+}
+
+.cycle-card--cs { border-top-color: var(--verde); }
+
+.cycle-head {
+    display: flex;
+    gap: 14px;
     align-items: center;
+    padding: 18px;
+    background:
+        linear-gradient(135deg, rgba(63, 81, 181, 0.12), rgba(76, 203, 74, 0.10)),
+        var(--surface-muted);
+}
+
+.cycle-code {
+    display: grid;
+    flex: 0 0 auto;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border-radius: 50%;
+    background-image: var(--grain), linear-gradient(135deg, var(--rojo-dark) 0 24%, var(--rojo) 48% 100%);
+    background-blend-mode: soft-light, normal;
+    color: var(--blanco);
+    font-weight: 950;
+}
+
+.cycle-card--cb .cycle-code {
+    background-image: var(--grain), linear-gradient(135deg, var(--azul-dark) 0 24%, var(--azul) 48% 100%);
+}
+
+.cycle-card--cs .cycle-code {
+    background-image: var(--grain), linear-gradient(135deg, var(--verde-dark) 0 24%, var(--verde) 48% 100%);
+}
+
+.cycle-head h2 {
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+}
+
+.cycle-card .price-table-wrap {
+    padding: 0 0 6px;
 }
 
 .detail-copy h1 {
@@ -1416,6 +1593,10 @@ p {
 }
 
 @media (max-width: 880px) {
+    .detail-header-row {
+        grid-template-columns: 1fr;
+    }
+
     .page {
         padding-top: 64px;
     }
@@ -1529,6 +1710,37 @@ p {
 }
 
 @media (max-width: 640px) {
+    .detail-header-row {
+        grid-template-columns: 1fr;
+    }
+
+    .cycle-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .cycle-toggle {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 14px;
+        grid-column: 1 / -1;
+    }
+
+    .cycle-card {
+        display: none;
+    }
+
+    .cycle-card--cb,
+    .cycle-card--cs {
+        display: block;
+    }
+
+    /* JS en móvil decide cuál mostrar */
+    .cycle-card--cb[style],
+    .cycle-card--cs[style] {
+        display: block;
+    }
+
     .topbar {
         gap: 8px;
     }
