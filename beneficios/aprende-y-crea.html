@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprend&eacute; y cre&aacute; - UNI2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        (() => {
+            const storedTheme = localStorage.getItem("uni2_theme");
+            const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
+        })();
+    </script>
+    <link rel="stylesheet" href="../style2.css">
+</head>
+<body>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="../index.html#inicio" aria-label="Volver al inicio"><img src="../LOJO_UNI2.png" alt="Logo UNI2"><span>UNI2</span></a>
+            <nav class="nav" aria-label="Men&uacute; principal"><a href="../index.html#beneficios">Beneficios</a><a href="../index.html#contacto">Contacto</a></nav>
+        </header>
+        <main>
+            <section class="benefit-page">
+                <div class="section-inner">
+                    <div class="benefit-page-header">
+                        <a class="benefit-back" href="../index.html#beneficios">Volver a beneficios</a>
+                        <h1>Aprend&eacute; y cre&aacute;</h1>
+                        <p>Descuentos en clases particulares, acompa&ntilde;amiento acad&eacute;mico y art&iacute;culos de librer&iacute;a. Todo lo que necesit&aacute;s para estudiar, crear y avanzar con confianza.</p>
+                    </div>
+                    <div class="benefit-list">
+                        <a class="benefit-list-card" href="#eureka-academia" aria-label="Ver beneficio de Eureka Academia">
+                            <span class="benefit-list-logo"><img src="../assets/logos/02_Eureka_academia.jpg" alt="Logo de Eureka Academia"></span>
+                            <span class="benefit-list-body">
+                                <h2>Eureka Academia</h2>
+                                <p>Aprend&eacute;, cre&aacute; y descubr&iacute; el mundo de la ciencia, la rob&oacute;tica y la programaci&oacute;n de una forma divertida e innovadora.</p>
+                                <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Almirante Brown 2886 &middot; @eureka.academia</span></span>
+                            </span>
+                            <strong class="discount-tag">10% OFF</strong>
+                        </a>
+                        <a class="benefit-list-card" href="#librera-muoz" aria-label="Ver beneficio de Librer&iacute;a Mu&ntilde;oz">
+                            <span class="benefit-list-logo"><img src="../assets/logos/26_Libreria_munoz.jpg" alt="Logo de Librer&iacute;a Mu&ntilde;oz"></span>
+                            <span class="benefit-list-body">
+                                <h2>Librer&iacute;a Mu&ntilde;oz</h2>
+                                <p>Todo para estudiar, trabajar y crear, con una amplia variedad de art&iacute;culos de librer&iacute;a y oficina.</p>
+                                <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Buenos Aires 1490 &middot; @munozlibreria</span></span>
+                            </span>
+                            <strong class="discount-tag">10% &uacute;tiles</strong>
+                        </a>
+                        <a class="benefit-list-card" href="#librera-sobre-ruedas" aria-label="Ver beneficio de Librer&iacute;a Sobre Ruedas">
+                            <span class="benefit-list-logo"><img src="../assets/logos/27_Libreria_sobre_ruedas.jpg" alt="Logo de Librer&iacute;a Sobre Ruedas"></span>
+                            <span class="benefit-list-body">
+                                <h2>Librer&iacute;a Sobre Ruedas</h2>
+                                <p>Encontr&aacute; &uacute;tiles, papeler&iacute;a y todo lo necesario para acompa&ntilde;ar tus proyectos.</p>
+                                <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> General Roca &middot; @libreriasobreruedas</span></span>
+                            </span>
+                            <strong class="discount-tag">5% OFF</strong>
+                        </a>
+                    </div>
+                    <article class="benefit-modal" id="eureka-academia" aria-label="Beneficio de Eureka Academia">
+                        <a class="benefit-modal-backdrop" href="#" aria-label="Cerrar detalle"></a>
+                        <div class="benefit-modal-card">
+                            <span class="benefit-list-logo"><img src="../assets/logos/02_Eureka_academia.jpg" alt="Logo de Eureka Academia"></span>
+                            <strong class="discount-tag">10% OFF</strong>
+                            <h2>Eureka Academia</h2>
+                            <p>Aprend&eacute;, cre&aacute; y descubr&iacute; el mundo de la ciencia, la rob&oacute;tica y la programaci&oacute;n de una forma divertida e innovadora.</p>
+                            <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Almirante Brown 2886 &middot; @eureka.academia</span></span>
+                        </div>
+                    </article>
+                    <article class="benefit-modal" id="librera-muoz" aria-label="Beneficio de Librer&iacute;a Mu&ntilde;oz">
+                        <a class="benefit-modal-backdrop" href="#" aria-label="Cerrar detalle"></a>
+                        <div class="benefit-modal-card">
+                            <span class="benefit-list-logo"><img src="../assets/logos/26_Libreria_munoz.jpg" alt="Logo de Librer&iacute;a Mu&ntilde;oz"></span>
+                            <strong class="discount-tag">10% &uacute;tiles</strong>
+                            <h2>Librer&iacute;a Mu&ntilde;oz</h2>
+                            <p>Todo para estudiar, trabajar y crear, con una amplia variedad de art&iacute;culos de librer&iacute;a y oficina.</p>
+                            <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Buenos Aires 1490 &middot; @munozlibreria</span></span>
+                        </div>
+                    </article>
+                    <article class="benefit-modal" id="librera-sobre-ruedas" aria-label="Beneficio de Librer&iacute;a Sobre Ruedas">
+                        <a class="benefit-modal-backdrop" href="#" aria-label="Cerrar detalle"></a>
+                        <div class="benefit-modal-card">
+                            <span class="benefit-list-logo"><img src="../assets/logos/27_Libreria_sobre_ruedas.jpg" alt="Logo de Librer&iacute;a Sobre Ruedas"></span>
+                            <strong class="discount-tag">5% OFF</strong>
+                            <h2>Librer&iacute;a Sobre Ruedas</h2>
+                            <p>Encontr&aacute; &uacute;tiles, papeler&iacute;a y todo lo necesario para acompa&ntilde;ar tus proyectos.</p>
+                            <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> General Roca &middot; @libreriasobreruedas</span></span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+    <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema">
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><i data-lucide="moon"></i></span>
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><i data-lucide="sun"></i></span>
+    </button>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        if (window.lucide) lucide.createIcons();
+        const THEME_KEY = "uni2_theme";
+        const root = document.documentElement;
+        const themeToggle = document.getElementById("theme-toggle");
+        const setTheme = (theme) => {
+            root.dataset.theme = theme;
+            localStorage.setItem(THEME_KEY, theme);
+            const isDark = theme === "dark";
+            themeToggle.setAttribute("aria-label", isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+            themeToggle.setAttribute("title", isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+        };
+        themeToggle.addEventListener("click", () => setTheme(root.dataset.theme === "dark" ? "light" : "dark"));
+    </script>
+</body>
+</html>

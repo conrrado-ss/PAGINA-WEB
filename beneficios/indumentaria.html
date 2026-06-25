@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indumentaria - UNI2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        (() => {
+            const storedTheme = localStorage.getItem("uni2_theme");
+            const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = storedTheme || (prefersDark ? "dark" : "light");
+        })();
+    </script>
+    <link rel="stylesheet" href="../style2.css">
+</head>
+<body>
+    <div class="page">
+        <header class="topbar">
+            <a class="brand" href="../index.html#inicio" aria-label="Volver al inicio"><img src="../LOJO_UNI2.png" alt="Logo UNI2"><span>UNI2</span></a>
+            <nav class="nav" aria-label="Men&uacute; principal"><a href="../index.html#beneficios">Beneficios</a><a href="../index.html#contacto">Contacto</a></nav>
+        </header>
+        <main>
+            <section class="benefit-page">
+                <div class="section-inner">
+                    <div class="benefit-page-header">
+                        <a class="benefit-back" href="../index.html#beneficios">Volver a beneficios</a>
+                        <h1>Indumentaria</h1>
+                        <p>Disfrut&aacute; descuentos exclusivos en indumentaria y renov&aacute; tu look con las &uacute;ltimas tendencias.</p>
+                    </div>
+                    <div class="benefit-list">
+                        <a class="benefit-list-card" href="#carolina-s-closet" aria-label="Ver beneficio de Carolina's Closet">
+                            <span class="benefit-list-logo"><img src="../assets/logos/12_Carolinas_closet.jpg" alt="Logo de Carolina's Closet"></span>
+                            <span class="benefit-list-body">
+                                <h2>Carolina's Closet</h2>
+                                <p>Encontr&aacute; prendas urbanas y formales que combinan estilo, tendencia y comodidad.</p>
+                                <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Tucum&aacute;n 952 timbre 2 &middot; @carolinaclosetss</span></span>
+                            </span>
+                            <strong class="discount-tag">15% OFF</strong>
+                        </a>
+                        <a class="benefit-list-card" href="#guapas-y-consentidas" aria-label="Ver beneficio de Guapas y Consentidas">
+                            <span class="benefit-list-logo"><img src="../assets/logos/18_Guapas_y_consentidas.jpg" alt="Logo de Guapas y Consentidas"></span>
+                            <span class="benefit-list-body">
+                                <h2>Guapas y Consentidas</h2>
+                                <p>Moda femenina para expresar tu estilo con confianza y personalidad.</p>
+                                <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Venta online &middot; @guapasyconsentidass</span></span>
+                            </span>
+                            <strong class="discount-tag">10% / 20% OFF</strong>
+                        </a>
+                        <a class="benefit-list-card" href="#juliana-deportiva" aria-label="Ver beneficio de Juliana Deportiva">
+                            <span class="benefit-list-logo"><img src="../assets/logos/20_Juliana_deportiva.jpg" alt="Logo de Juliana Deportiva"></span>
+                            <span class="benefit-list-body">
+                                <h2>Juliana Deportiva</h2>
+                                <p>Todo lo que necesit&aacute;s para entrenar con comodidad, estilo y rendimiento.</p>
+                                <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Tucum&aacute;n 1014 &middot; @julianadeportiva</span></span>
+                            </span>
+                            <strong class="discount-tag">15% efectivo</strong>
+                        </a>
+                        <a class="benefit-list-card" href="#miwo-sport" aria-label="Ver beneficio de Miwo Sport">
+                            <span class="benefit-list-logo"><img src="../assets/logos/28_Miwo_sport.jpg" alt="Logo de Miwo Sport"></span>
+                            <span class="benefit-list-body">
+                                <h2>Miwo Sport</h2>
+                                <p>Indumentaria deportiva que combina comodidad, movimiento y estilo.</p>
+                                <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> C.219 bis 1275 &middot; @miwosport</span></span>
+                            </span>
+                            <strong class="discount-tag">20% OFF</strong>
+                        </a>
+                    </div>
+                    <article class="benefit-modal" id="carolina-s-closet" aria-label="Beneficio de Carolina's Closet">
+                        <a class="benefit-modal-backdrop" href="#" aria-label="Cerrar detalle"></a>
+                        <div class="benefit-modal-card">
+                            <span class="benefit-list-logo"><img src="../assets/logos/12_Carolinas_closet.jpg" alt="Logo de Carolina's Closet"></span>
+                            <strong class="discount-tag">15% OFF</strong>
+                            <h2>Carolina's Closet</h2>
+                            <p>Encontr&aacute; prendas urbanas y formales que combinan estilo, tendencia y comodidad.</p>
+                            <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Tucum&aacute;n 952 timbre 2 &middot; @carolinaclosetss</span></span>
+                        </div>
+                    </article>
+                    <article class="benefit-modal" id="guapas-y-consentidas" aria-label="Beneficio de Guapas y Consentidas">
+                        <a class="benefit-modal-backdrop" href="#" aria-label="Cerrar detalle"></a>
+                        <div class="benefit-modal-card">
+                            <span class="benefit-list-logo"><img src="../assets/logos/18_Guapas_y_consentidas.jpg" alt="Logo de Guapas y Consentidas"></span>
+                            <strong class="discount-tag">10% / 20% OFF</strong>
+                            <h2>Guapas y Consentidas</h2>
+                            <p>Moda femenina para expresar tu estilo con confianza y personalidad.</p>
+                            <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Venta online &middot; @guapasyconsentidass</span></span>
+                        </div>
+                    </article>
+                    <article class="benefit-modal" id="juliana-deportiva" aria-label="Beneficio de Juliana Deportiva">
+                        <a class="benefit-modal-backdrop" href="#" aria-label="Cerrar detalle"></a>
+                        <div class="benefit-modal-card">
+                            <span class="benefit-list-logo"><img src="../assets/logos/20_Juliana_deportiva.jpg" alt="Logo de Juliana Deportiva"></span>
+                            <strong class="discount-tag">15% efectivo</strong>
+                            <h2>Juliana Deportiva</h2>
+                            <p>Todo lo que necesit&aacute;s para entrenar con comodidad, estilo y rendimiento.</p>
+                            <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Tucum&aacute;n 1014 &middot; @julianadeportiva</span></span>
+                        </div>
+                    </article>
+                    <article class="benefit-modal" id="miwo-sport" aria-label="Beneficio de Miwo Sport">
+                        <a class="benefit-modal-backdrop" href="#" aria-label="Cerrar detalle"></a>
+                        <div class="benefit-modal-card">
+                            <span class="benefit-list-logo"><img src="../assets/logos/28_Miwo_sport.jpg" alt="Logo de Miwo Sport"></span>
+                            <strong class="discount-tag">20% OFF</strong>
+                            <h2>Miwo Sport</h2>
+                            <p>Indumentaria deportiva que combina comodidad, movimiento y estilo.</p>
+                            <span class="benefit-meta"><span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> C.219 bis 1275 &middot; @miwosport</span></span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
+    <button id="theme-toggle" type="button" class="theme-toggle" aria-label="Cambiar a modo oscuro" title="Cambiar tema">
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true"><i data-lucide="moon"></i></span>
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true"><i data-lucide="sun"></i></span>
+    </button>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script>
+        if (window.lucide) lucide.createIcons();
+        const THEME_KEY = "uni2_theme";
+        const root = document.documentElement;
+        const themeToggle = document.getElementById("theme-toggle");
+        const setTheme = (theme) => {
+            root.dataset.theme = theme;
+            localStorage.setItem(THEME_KEY, theme);
+            const isDark = theme === "dark";
+            themeToggle.setAttribute("aria-label", isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+            themeToggle.setAttribute("title", isDark ? "Cambiar a modo claro" : "Cambiar a modo oscuro");
+        };
+        themeToggle.addEventListener("click", () => setTheme(root.dataset.theme === "dark" ? "light" : "dark"));
+    </script>
+</body>
+</html>

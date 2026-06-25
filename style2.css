@@ -148,23 +148,24 @@ a {
 }
 
 .menu-button {
-    display: none;
+    order: 4;
     position: relative;
+    display: none;
     width: 46px;
     height: 46px;
     border: 1px solid var(--linea);
     border-radius: 16px;
     background: var(--surface-solid);
     cursor: pointer;
-    place-items: center;
 }
 
 .menu-button span,
 .menu-button::before,
 .menu-button::after {
-    display: block;
     position: absolute;
     left: 50%;
+    top: 50%;
+    display: block;
     width: 22px;
     height: 2px;
     background: var(--azul);
@@ -199,6 +200,7 @@ a {
 }
 
 .nav {
+    order: 2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,6 +221,41 @@ a {
 .nav a:hover {
     background: rgba(63, 81, 181, 0.08);
     color: var(--azul);
+}
+
+.topbar-ctas {
+    order: 3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.show-topbar-ctas .topbar-ctas {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.topbar-cta {
+    min-height: 40px;
+    padding: 9px 15px;
+    font-size: 0.9rem;
+    box-shadow: 0 10px 24px rgba(255, 203, 48, 0.2);
+}
+
+.topbar-cta.secondary {
+    box-shadow: 0 10px 24px rgba(63, 81, 181, 0.18);
+}
+
+.service-topbar-cta {
+    margin-left: auto;
+    min-height: 40px;
+    padding: 9px 15px;
+    font-size: 0.9rem;
 }
 
 .cta {
@@ -477,6 +514,10 @@ p {
     box-shadow: 0 26px 56px rgba(47, 63, 146, 0.18);
 }
 
+.service-card[data-href] {
+    cursor: pointer;
+}
+
 .service-icon {
     display: grid;
     width: 64px;
@@ -509,6 +550,7 @@ p {
 .service-card-yellow { --card-color: var(--amarillo); --card-dark: var(--amarillo-dark); --card-text: #2d2606; }
 .service-card-green { --card-color: var(--verde); --card-dark: var(--verde-dark); }
 .service-card-red { --card-color: var(--rojo); --card-dark: var(--rojo-dark); }
+.service-card-purple { --card-color: var(--azul); --card-dark: var(--azul-dark); }
 
 .benefit-band {
     display: grid;
@@ -591,7 +633,8 @@ p {
 .logo-dot img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background: #ffffff;
+    object-fit: contain;
 }
 
 .logo-dot-left,
@@ -679,7 +722,7 @@ p {
 .carousel {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: minmax(320px, 48%);
+    grid-auto-columns: minmax(720px, 100%);
     gap: 18px;
     overflow-x: auto;
     padding: 8px 2px 22px;
@@ -886,6 +929,39 @@ p {
 .hours-table tbody td {
     color: rgba(255, 255, 255, 0.88);
     font-weight: 700;
+}
+
+.hours-chip {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 30px;
+    margin: 3px 5px 3px 0;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 900;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.hours-chip-blue {
+    background: var(--blanco);
+    color: var(--azul);
+}
+
+.hours-chip-yellow {
+    background: var(--amarillo);
+    color: #2d2606;
+}
+
+.hours-chip-green {
+    background: var(--verde-dark);
+}
+
+.hours-chip-red {
+    background: var(--rojo);
 }
 
 .hours-table-compact {
@@ -1220,6 +1296,14 @@ a#arriba {
     text-transform: uppercase;
 }
 
+.price-table .table-group-row th {
+    background: rgba(63, 81, 181, 0.1);
+    color: var(--azul);
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
 .price-table tbody th {
     color: var(--texto);
     font-weight: 900;
@@ -1274,6 +1358,106 @@ a#arriba {
 .print-contact a {
     font-weight: 900;
     overflow-wrap: anywhere;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    align-items: center;
+}
+
+.contact-links a {
+    min-width: 0;
+}
+
+.contact-separator {
+    color: var(--blanco);
+    font-weight: 800;
+}
+
+.contact-links .whatsapp-link {
+    color: #33d061;
+}
+
+.price-table-compact {
+    min-width: 0;
+}
+
+.product-price-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.product-price-card {
+    display: grid;
+    gap: 18px;
+    padding: 22px;
+    border: 1px solid var(--linea);
+    border-radius: 18px;
+    background: var(--surface-solid);
+    box-shadow: var(--sombra);
+}
+
+.product-price-head {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.product-price-icon {
+    display: grid;
+    flex: 0 0 auto;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border-radius: 50%;
+    background-image: var(--grain), linear-gradient(135deg, var(--azul-dark) 0 24%, var(--azul) 48% 100%);
+    background-blend-mode: soft-light, normal;
+    color: var(--blanco);
+    font-weight: 950;
+}
+
+.product-price-card:nth-child(2) .product-price-icon {
+    background-image: var(--grain), linear-gradient(135deg, var(--verde-dark) 0 24%, var(--verde) 48% 100%);
+}
+
+.product-price-card h2,
+.product-price-card h3 {
+    margin: 0;
+}
+
+.product-price-card p {
+    margin: 4px 0 0;
+    color: var(--suave);
+}
+
+.price-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.price-pill {
+    display: grid;
+    gap: 4px;
+    padding: 14px;
+    border-radius: 14px;
+    background: var(--surface-muted);
+}
+
+.price-pill strong {
+    color: var(--azul);
+    font-size: 1.45rem;
+    letter-spacing: 0;
+}
+
+.price-pill span {
+    color: var(--suave);
+    font-size: 0.78rem;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
 .spec-grid {
@@ -1659,10 +1843,22 @@ a#arriba {
     }
 
     .menu-button {
+        order: 4;
         display: grid;
         width: 42px;
         height: 42px;
         border-radius: 14px;
+    }
+
+    .topbar-ctas {
+        margin-left: auto;
+        gap: 6px;
+    }
+
+    .topbar-cta {
+        min-height: 38px;
+        padding: 8px 11px;
+        font-size: 0.78rem;
     }
 
     .nav {
@@ -1694,6 +1890,11 @@ a#arriba {
         display: none;
     }
 
+    .topbar > .service-topbar-cta {
+        display: inline-flex;
+        margin-left: auto;
+    }
+
     .hero {
         min-height: auto;
         padding-top: 82px;
@@ -1713,7 +1914,9 @@ a#arriba {
     }
 
     .carousel {
-        grid-auto-columns: minmax(280px, 86%);
+        width: 100vw;
+        margin-inline: calc((100% - 100vw) / 2);
+        grid-auto-columns: 100%;
     }
 
     .footer-container {
@@ -1850,9 +2053,9 @@ a#arriba {
     .benefit-links {
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: minmax(82%, 1fr);
+        grid-auto-columns: calc((100% - 10px) / 2);
         grid-template-columns: none;
-        gap: 12px;
+        gap: 10px;
         overflow-x: auto;
         padding: 2px 2px 14px;
         scroll-snap-type: x mandatory;
@@ -1861,15 +2064,18 @@ a#arriba {
 
     .benefit-mix-card {
         border-radius: 14px;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
     }
 
     .benefit-rubric {
-        font-size: clamp(1.08rem, 6vw, 1.55rem);
+        right: 7%;
+        bottom: 7%;
+        left: 7%;
+        font-size: clamp(0.9rem, 4.4vw, 1.18rem);
     }
 
     .logo-dot {
-        border-width: 4px;
+        border-width: 3px;
     }
 
     .logo-dot span {
@@ -1968,5 +2174,415 @@ a#arriba {
 
     .spec-grid {
         display: grid;
+    }
+}
+
+@media (max-width: 560px) {
+    .topbar-ctas {
+        gap: 5px;
+    }
+
+    .topbar-cta,
+    .hero-actions .topbar-cta {
+        width: auto;
+        min-height: 34px;
+        padding: 7px 9px;
+        font-size: 0.72rem;
+    }
+}
+
+.custom-footer {
+    padding: 34px 18px 96px;
+    background: var(--surface-muted);
+    color: var(--texto);
+    border-top: 1px solid var(--linea);
+}
+
+.custom-footer .footer-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    width: min(1180px, 100%);
+    margin: 0 auto;
+    text-align: left;
+}
+
+.footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.footer-icon {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border: 1px solid var(--linea);
+    border-radius: 999px;
+    background: var(--surface-solid);
+    color: var(--texto);
+    font-size: 1.25rem;
+    box-shadow: 0 12px 28px rgba(47, 63, 146, 0.08);
+    transition: transform 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.footer-icon-mail {
+    background: var(--rojo);
+    color: var(--blanco);
+}
+
+.footer-icon-whatsapp {
+    background: var(--verde);
+    color: #07230d;
+}
+
+.footer-icon-instagram {
+    background: var(--amarillo);
+    color: #2d2606;
+}
+
+.footer-icon:hover {
+    transform: translateY(-2px);
+}
+
+.footer-icon-mail:hover {
+    color: var(--blanco);
+}
+
+.footer-icon-whatsapp:hover {
+    color: #07230d;
+}
+
+.footer-icon-instagram:hover {
+    color: #2d2606;
+}
+
+.footer-location {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--suave);
+    font-weight: 800;
+}
+
+.footer-location i {
+    color: var(--rojo);
+}
+
+.footer-copy {
+    max-width: none;
+    color: var(--suave);
+    font-size: 0.94rem;
+    padding: 0;
+    white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+    .custom-footer .footer-container {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .footer-copy {
+        white-space: normal;
+    }
+}
+
+.benefit-page {
+    min-height: calc(100vh - 84px);
+    background:
+        radial-gradient(circle at top left, rgba(255, 203, 48, 0.18), transparent 28%),
+        linear-gradient(180deg, var(--fondo) 0%, var(--fondo-2) 100%);
+}
+
+.benefit-page .section-inner {
+    display: grid;
+    gap: 26px;
+}
+
+.benefit-page-header {
+    display: grid;
+    gap: 16px;
+    max-width: 780px;
+}
+
+.benefit-page-header h1 {
+    margin-top: 0;
+    font-size: clamp(2.7rem, 7vw, 5.6rem);
+}
+
+.benefit-page-header p {
+    max-width: 680px;
+    font-size: 1.05rem;
+}
+
+.benefit-back {
+    width: fit-content;
+    color: var(--azul);
+    font-weight: 900;
+}
+
+.merchant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+}
+
+.merchant-card {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+    min-height: 210px;
+    padding: 18px;
+    border: 1px solid var(--linea);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: var(--sombra);
+}
+
+.merchant-logo {
+    display: grid;
+    width: 96px;
+    height: 96px;
+    place-items: center;
+    overflow: hidden;
+    border: 4px solid var(--blanco);
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 16px 30px rgba(23, 32, 59, 0.16);
+}
+
+.merchant-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.merchant-card h2 {
+    font-size: 1.1rem;
+    line-height: 1.12;
+    letter-spacing: 0;
+}
+
+.benefit-list {
+    display: grid;
+    gap: 14px;
+}
+
+.benefit-list-card {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    width: 100%;
+    padding: 16px 18px;
+    border: 1px solid var(--linea);
+    border-radius: 18px;
+    background: var(--surface);
+    box-shadow: 0 16px 34px rgba(23, 32, 59, 0.09);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.benefit-list-card:hover {
+    border-color: rgba(63, 81, 181, 0.28);
+    box-shadow: var(--sombra);
+    transform: translateY(-2px);
+}
+
+.benefit-list-logo {
+    display: grid;
+    flex: 0 0 auto;
+    width: 62px;
+    height: 62px;
+    place-items: center;
+    overflow: hidden;
+    border: 3px solid var(--blanco);
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 12px 24px rgba(23, 32, 59, 0.14);
+}
+
+.benefit-list-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.benefit-list-body {
+    display: grid;
+    min-width: 0;
+    gap: 4px;
+    text-align: left;
+}
+
+.benefit-list-body h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.15;
+    letter-spacing: 0;
+}
+
+.benefit-list-body p {
+    margin: 0;
+    color: var(--suave);
+    font-size: 0.92rem;
+}
+
+.benefit-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    color: var(--suave);
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.benefit-meta i {
+    color: var(--azul);
+}
+
+.discount-tag {
+    flex: 0 0 auto;
+    margin-left: auto;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background-image: var(--grain), linear-gradient(135deg, var(--amarillo-dark) 0 24%, var(--amarillo) 48% 100%);
+    background-blend-mode: soft-light, normal;
+    color: #2d2606;
+    font-size: 0.85rem;
+    font-weight: 950;
+    white-space: nowrap;
+}
+
+.benefit-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    display: none;
+    place-items: center;
+    padding: 24px;
+}
+
+.benefit-modal:target {
+    display: grid;
+}
+
+.benefit-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(8, 12, 22, 0.62);
+    backdrop-filter: blur(7px);
+}
+
+.benefit-modal-card {
+    position: relative;
+    display: grid;
+    gap: 16px;
+    width: min(520px, 100%);
+    padding: 26px;
+    border: 1px solid var(--linea);
+    border-radius: 24px;
+    background: var(--surface-solid);
+    box-shadow: 0 30px 80px rgba(8, 12, 22, 0.28);
+    text-align: center;
+}
+
+.benefit-modal-card .benefit-list-logo {
+    width: 104px;
+    height: 104px;
+    margin: 0 auto;
+}
+
+.benefit-modal-card h2 {
+    margin: 0;
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
+}
+
+.benefit-modal-card p {
+    margin: 0;
+    color: var(--suave);
+}
+
+.benefit-modal-card .discount-tag {
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+@media (max-width: 560px) {
+    .custom-footer .footer-container {
+        flex-direction: column;
+        gap: 18px;
+        text-align: center;
+    }
+
+    .footer-copy {
+        white-space: normal;
+    }
+
+    .price-table-compact th,
+    .price-table-compact td {
+        padding: 12px 8px;
+        font-size: 0.84rem;
+    }
+
+    .booklet-table {
+        min-width: 0;
+    }
+
+    .booklet-table th,
+    .booklet-table td {
+        padding: 12px 8px;
+        font-size: 0.82rem;
+    }
+
+    .booklet-table tbody th {
+        width: 48%;
+    }
+
+    .product-price-grid,
+    .price-pair {
+        grid-template-columns: 1fr;
+    }
+
+    .print-contact {
+        align-items: flex-start;
+    }
+
+    .benefit-list-card {
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .benefit-list-logo {
+        width: 54px;
+        height: 54px;
+    }
+
+    .discount-tag {
+        padding: 8px 10px;
+        font-size: 0.74rem;
+    }
+
+    .benefit-list-body h2 {
+        font-size: 0.98rem;
+    }
+
+    .benefit-list-body p {
+        font-size: 0.82rem;
+    }
+
+    .custom-footer {
+        padding-bottom: 112px;
+    }
+
+    .footer-copy {
+        padding: 0 12px;
     }
 }
