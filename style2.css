@@ -526,7 +526,7 @@ p {
     place-items: center;
     background-image: var(--grain), linear-gradient(135deg, var(--card-dark) 0 24%, var(--card-color) 48% 100%);
     background-blend-mode: soft-light, normal;
-    color: var(--card-text, var(--blanco));
+    color: var(--card-text, var(--negro));
     border-radius: 50%;
 }
 
@@ -547,11 +547,11 @@ p {
     font-weight: 900;
 }
 
-.service-card-blue { --card-color: var(--azul); --card-dark: var(--azul-dark); }
-.service-card-yellow { --card-color: var(--amarillo); --card-dark: var(--amarillo-dark); --card-text: #2d2606; }
-.service-card-green { --card-color: var(--verde); --card-dark: var(--verde-dark); }
-.service-card-red { --card-color: var(--rojo); --card-dark: var(--rojo-dark); }
-.service-card-purple { --card-color: var(--azul); --card-dark: var(--azul-dark); }
+.service-card-blue { --card-color: var(--azul); --card-dark: var(--azul-dark); --card-text: #000000; }
+.service-card-yellow { --card-color: var(--amarillo); --card-dark: var(--amarillo-dark); --card-text: #000000; }
+.service-card-green { --card-color: var(--verde); --card-dark: var(--verde-dark); --card-text: #000000; }
+.service-card-red { --card-color: var(--rojo); --card-dark: var(--rojo-dark); --card-text: #000000; }
+.service-card-purple { --card-color: var(--amarillo); --card-dark: var(--amarillo-dark); --card-text: #000000; }
 
 .benefit-band {
     display: grid;
